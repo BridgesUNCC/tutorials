@@ -15,9 +15,9 @@ then
     exit 1
 fi
 
-if ! [ -e ../../../isbridgeswebsite ];
+if ! [ -e ../../../isbridgestutorials ];
 then
-    echo This script should be run from BridgesUNCC.github.io/tutorials/testing/scripts
+    echo This script should be run from tutorials/tutorials/testing/scripts
     exit 1
 fi
 
