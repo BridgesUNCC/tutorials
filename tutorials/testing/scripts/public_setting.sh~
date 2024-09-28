@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ "${FORCE_BRIDGES_USERNAME}" = "" ]
+then
+    
+fi
+   
