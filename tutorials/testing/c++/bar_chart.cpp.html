@@ -23,13 +23,13 @@
 	BarChart bar;
 	bar.setTitle(<span class="Constant">&quot;Hello World BarChart!&quot;</span>);
 	bar.setSubTitle(<span class="Constant">&quot;Woah!&quot;</span>);
-	bar.setBinsLabel(<span class="Constant">&quot;Country&quot;</span>);
-	bar.setSeriesLabel(<span class="Constant">&quot;Population&quot;</span>);
+	bar.setCategoriesLabel(<span class="Constant">&quot;Continents&quot;</span>);
+	bar.setValueLabel(<span class="Constant">&quot;Population (in millions)&quot;</span>);
 	bar.setBarOrientation(<span class="Constant">&quot;horizontal&quot;</span>);
 	bar.setTooltipSuffix(<span class="Constant">&quot; millions&quot;</span>);
 
 	vector&lt;string&gt; bins{<span class="Constant">&quot;Africa&quot;</span>, <span class="Constant">&quot;America&quot;</span>, <span class="Constant">&quot;Asia&quot;</span>, <span class="Constant">&quot;Europe&quot;</span>};
-	bar.setSeriesBins(bins);
+	bar.setCategories(bins);
 
 	vector&lt;<span class="Type">double</span>&gt; y1{<span class="Constant">10</span>, <span class="Constant">100</span>, <span class="Constant">40</span>, <span class="Constant">23</span>};
 	vector&lt;<span class="Type">double</span>&gt; y2{<span class="Constant">100</span>, <span class="Constant">10</span>, <span class="Constant">80</span>, <span class="Constant">232</span>};

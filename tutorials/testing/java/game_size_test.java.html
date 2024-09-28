@@ -4,7 +4,7 @@
 
 <span class="Type">class</span> game_size_test <span class="Type">extends</span> NonBlockingGame {
 	<span class="Type">public</span> game_size_test(<span class="Type">int</span> assignmentnumber, String username, String apikey) {
-		<span class="Type">super</span> (assignmentnumber, username,  apikey, <span class="Constant">10</span>, <span class="Constant">20</span>);
+		<span class="Type">super</span> (assignmentnumber, username,  apikey, <span class="Constant">10</span>, <span class="Constant">10</span>);
 	}
 
 	<span class="Type">public</span> <span class="Type">void</span> initialize() {
@@ -13,9 +13,9 @@
 				setBGColor(i, j, NamedColor.ivory);
 
 		drawSymbol(<span class="Constant">0</span>, <span class="Constant">0</span>, NamedSymbol.U, NamedColor.red);
-		drawSymbol(<span class="Constant">0</span>, <span class="Constant">19</span>, NamedSymbol.N, NamedColor.green);
-		drawSymbol(<span class="Constant">9</span>, <span class="Constant">0</span>, NamedSymbol.C, NamedColor.blue);
-		drawSymbol(<span class="Constant">9</span>, <span class="Constant">19</span>, NamedSymbol.C, NamedColor.cyan);
+		drawSymbol(<span class="Constant">0</span>, <span class="Constant">9</span>, NamedSymbol.N, NamedColor.green);
+		drawSymbol(<span class="Constant">9</span>, <span class="Constant">9</span>, NamedSymbol.C, NamedColor.blue);
+		drawSymbol(<span class="Constant">9</span>, <span class="Constant">0</span>, NamedSymbol.C, NamedColor.cyan);
 	}
 
 	<span class="Type">public</span> <span class="Type">void</span> gameLoop() {
