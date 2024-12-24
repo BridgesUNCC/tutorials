@@ -27,36 +27,32 @@
 
       <header w3-include-html="./Tutorial_Header.html"></header>
       <main>
-	<h1>  Maps in BRIDGES </h1>
+	<h1>  Geographical Maps in BRIDGES </h1>
 	
 	<h2>How does the Map API work BRIDGES? </h2>
 	<p>
-	  A graph is a set of vertices connected by edges. Unlike tree structures, a
-	  vertex can be an ancestor or a child and can have multiple emanating edges.
-	  In fact, a tree structure is just a special case of a graph.
-	  <br/><br/><img class="img-responsive" width="400em" src="./images/Graph.png"/><br/><br/>
-	  Bridges represents graph structures in one of two ways: either using an
-	  adjacency list representation or an adjacency matrix representation.
-	  Access to the vertices is similar to indexing into an array (O(1) complexity).
-	  The main difference in our implementation is that vertex ids can be 
-		numerical values or strings;
-	  BRIDGES implements constant access to vertices using maps (in Java, C++
-		and Python).
-	  <br/><br/>
-	  In the adjacency list representation, the GraphAdjList is holding a Map
-	  of vertices, each  of which is associated with a linked list of Edges.
-	  These <i>Edge</i> vertices
-	  are of type SLElement&lt;E&gt; with the generic object E used to hold edge	  information (terminating vertex, edge weight, etc). Finally, graph
-	  vertices and edges can have application specific data objects associated 
-     with them.
+	  Maps in BRIDGES are retrieved from GeoJSON descriptions of the map
+		geometry. Currently, we support both the US map and World map. The
+		current interface permits US maps to be colored by state or by county.
+		The color can reflect any user chose attibute, such as population, 
+		sales, crime rates, etc. and dependent on the data being mapped to 
+		the state. Counties <p>
+
+		Counties for the US map can also be displayed and attributes assigned
+		similar to states. For instance, election data can be mapped to each
+		county for a more detail look of voting patterns over the years.
+
+		In addition, maps can be a background  for other BRIDGES data 
+		structures. For instance, you can imaging graph problems being 
+		solved as a function of the US cities (Minimum Spanning Tree, Traveling
+		Salesman Problem, etc.)
+
+		In this tutorial, we will illustrate the basic UI capabilities of 
+		BRIDGES Maps that will be helpful in building map based assignments.
+
+	  <br/><br/><img class="img-responsive" width="400em" src="./images/usmap.png"/><br/><br/>
 	  <br/><br/>
 
-	  The graph  class provides some convenient methods to add vertices 
-		and edges
-	  (GraphAdjList::addVertex(), GraphAdjList::addEdge()) to build the graph,
-		and to access or set visual attributes. There are also methods to 
-		iterate through the outgoing edges of a vertex, iterators, all of which
-		will be demonstrated in this tutorial.
 	</p>
 
 	<hr/>
@@ -64,30 +60,22 @@
 
 	
  <h3> See also</h3>
-	  <p>This tutorial gives an introduction to the usage of adjacendy list. You can find the complete documentation of the features in the Doxygen documentation of the following classes and functions: </p>
+	  <p>This tutorial gives an introduction to the use of maps in BRIDGES.
 	  <ol>
 
-	<li> GraphAdjList <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_graph_adj_list.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_graph_adj_list.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1graph__adj__list_1_1_graph_adj_list.html">[Python]</a></li>
-	<li> Edge <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_edge.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_edge.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1edge_1_1_edge.html">[Python]</a></li>
-	    
-	    <li> SLelement <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_s_lelement.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_s_lelement.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1sl__element_1_1_s_lelement.html">[Python]</a></li>
-	    <li> Element <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_element.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_element.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1element_1_1_element.html">[Python]</a></li>
-	    <li> ElementVisualizer <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_element_visualizer.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_element_visualizer.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1element__visualizer_1_1_element_visualizer.html">[Python]</a></li>
-	    <li> LinkVisualizer <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_link_visualizer.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_link_visualizer.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1link__visualizer_1_1_link_visualizer.html">[Python]</a></li>
 	    <li> Color <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_color.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_color.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1color_1_1_color.html">[Python]</a> </li>
 	  </ol>
 
 
-	<h2>1. Getting Started: Build a Barebones Adjacency List Based Graph</h2>
+	<h2>1. Getting Started: Build a US Map with State boundaries</h2>
 	
-	<p> In the first part of the tutorial, we will create a graph 
-		with  nodes containing string labels, add some edges between 
-		nodes, provide BRIDGES a handle to the data structure and 
-		visualize the graph.
+	<p> In the first part of the tutorial, we will create a US map that 
+		displays each state's boundary. A city is marked as a linked list 
+		node and will be the data structure for this tutorial.
 	</p>
 	<p>
 	If you follow the URL given to you when the application runs, it
-	will get to to the Bridges webpage that shows your output. 
+	will get to the Bridges webpage that shows your output. 
 	You do not need to be logged into your BRIDGES account to see the 
 	output. If you are logged into your account, the output will show 
 	up in your gallery.
