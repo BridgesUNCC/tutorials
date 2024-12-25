@@ -59,8 +59,9 @@
 
 
 	
- <h3> See also</h3>
-	  <p>This tutorial gives an introduction to the use of maps in BRIDGES.
+	<p>This tutorial gives an introduction to the use of maps in BRIDGES. 
+
+	 <h3> See also</h3>
 	  <ol>
 
 	    <li> Color <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_color.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_color.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1color_1_1_color.html">[Python]</a> </li>
@@ -69,9 +70,9 @@
 
 	<h2>1. Getting Started: Build a US Map with State boundaries</h2>
 	
-	<p> In the first part of the tutorial, we will create a US map that 
-		displays each state's boundary. A city is marked as a linked list 
-		node and will be the data structure for this tutorial.
+	<p> In the first part of the tutorial, we will create a US map of all states showing each state's boundary. A city is marked as a linked list 
+		node and will be the data structure for this tutorial. The map uses
+		a default color for each state's boundary and a default fill color. 
 	</p>
 	<p>
 	If you follow the URL given to you when the application runs, it
@@ -94,9 +95,9 @@
 	</div>
 
 	<div class="tabContents snippet1">
-	  <div id="Java1" w3-include-html="./Java_Graph_Basic.html"></div>
-	  <div id="C++1"  w3-include-html="./Cpp_Graph_Basic.html"></div>
-	  <div id="Python1"  w3-include-html="./Python_Graph_Basic.html"></div>
+	  <div id="Java1" w3-include-html="./Java_Map_Basic.html"></div>
+	  <div id="C++1"  w3-include-html="./Cpp_Map_Basic.html"></div>
+	  <div id="Python1"  w3-include-html="./Python_Basic_Basic.html"></div>
 	</div>
 
 	<div class="iframe-wrapper">
@@ -109,23 +110,19 @@
 	<hr>
 	
 
-	<h2>2. What Visual Attributes are supported for Graphs?</h2>
+	<h2>2. Drawing US Map with all counties</h2>
 
-	<p> The graph you created in the first part of the tutorial uses
-		default attributes and is pretty boring, but it gives you the
-		basic structure of a BRIDGES program.</p>
+	<p> The map you created in the first part  had just the states drawn 
+		as polygons. Here will add the counties for each state.  The map
+		continues to use default attributes for boundary and fill colors.
 
-	<p> Next, we will style the graph we just created. For graphs, you can
-		set the <strong>shape, color, opacity and label</strong> of the 
-		nodes (vertices), and for the links, <strong> color, opacity, 
-		thickness and
-		label</strong>.  Check out the links to the classes (listed above)
+
+	<p> Check out the links to the classes (listed above)
 		that supports these attributes and also details the possible
 		colors and shapes you can use and how to specify them. 
 	</p>
 
-	<p>The following code styles the graph we created in part 1 and adds
-		visual attributes. The visualization follows that.
+	<p> Here is the code that generated the map output with counties.
 	</p>
 
 	<div class="tabs snippet2">
@@ -134,9 +131,9 @@
 	  <div onclick="displayCodeSnippet('Python2', 'snippet2', this)" >Python</div>
 	</div>
 	<div class="tabContents snippet2">
-	  <div id="Java2" w3-include-html="./Java_Graph_Styling.html"></div>
-	  <div id="C++2"  w3-include-html="./Cpp_Graph_Styling.html"></div>
-	  <div id="Python2"  w3-include-html="./Python_Graph_Styling.html"></div>
+	  <div id="Java2" w3-include-html="./Java_Map_County.html"></div>
+	  <div id="C++2"  w3-include-html="./Cpp_Map_County.html"></div>
+	  <div id="Python2"  w3-include-html="./Python_Map_County.html"></div>
 	</div>
 	<div class="iframe-wrapper">
 	<iframe src="https://bridges-cs.herokuapp.com/assignments/10160/bridges_public" scrolling="no">
@@ -147,7 +144,7 @@
 	</div>
 	<hr>
 
-	<h2>3. Advanced Features.</h2>
+	<h2>3. Advanced Features: Displaying specific states, choosing attributes.</h2>
 
 	<p> In the last part of this tutorial, we show some advanced features with 
 		graphs.  An operation that is frequently required in graph algorithms
