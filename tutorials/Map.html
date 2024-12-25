@@ -146,17 +146,16 @@
 
 	<h2>3. Advanced Features: Displaying specific states, choosing attributes.</h2>
 
-	<p> In the last part of this tutorial, we show some advanced features with 
-		graphs.  An operation that is frequently required in graph algorithms
-		is to traverse  through the edges from a given vertex. The 
-		convenience method <strong>outgoingEdgeSetOf()</strong> combined
-		with iterators makes it easy to perform this operation. We demonstrate
-		multiple  ways  of doing the traversal in this tutorial.
-		These features make it more intuitive and convenient to traverse 
-		the data structure. A similar feature is provided to list the vertices
-		in the graph, using the <strong>keySet()</strong> method.
+	<p> In the last part of this tutorial, we show some advanced and customizable  
+		features with maps. We show the ability to select specific states to 
+		be drawn with custom attributes fill and boundary colors. This will
+		be needed when the colors are related to a data attribute, for instance,
+		population size, election results in each county, per-capita income,
+		business sales, etc. In these instances, we need to look at each
+		county and apply a specific color representing the data attribute. This 
+		tutorial illustrates how to iterate through the counties of a state and 		set fill/boundary colors at the state or county level.
 	</p>
-	<p>The following code illustrates these advanced features of graphs. The visualization follows that. Hit
+	<p>The following code illustrates these advanced features of maps. The visualization follows that. Hit
 		the 'l' button to turn on the labels.
 	</p>
 
@@ -166,9 +165,9 @@
 	  <div onclick="displayCodeSnippet('Python3', 'snippet3', this)" >Python</div>
 	</div>
 	<div class="tabContents snippet3">
-	  <div id="Java3" w3-include-html="./Java_Graph_Advanced.html"></div>
-	  <div id="C++3"  w3-include-html="./Cpp_Graph_Advanced.html"></div>
-	  <div id="Python3"  w3-include-html="./Python_Graph_Advanced.html"></div>
+	  <div id="Java3" w3-include-html="./Java_Map_Advanced.html"></div>
+	  <div id="C++3"  w3-include-html="./Cpp_Map_Advanced.html"></div>
+	  <div id="Python3"  w3-include-html="./Python_Map_Advanced.html"></div>
 	</div>
 	<div class="iframe-wrapper">
 	<iframe src="https://bridges-cs.herokuapp.com/assignments/10170/bridges_public" scrolling="no">
@@ -178,10 +177,10 @@
 	</iframe>
 	</div>
 	<hr>
-    <p>Well done! You’ve just created your first Bridges Graph!</p>
+    <p>Well done! You’ve just created your first Bridges based Map! Congrats on completing this tutorial</p>
 
 	<h2>Going Further</h2>
-	<p>Check Bridges <a href="../newassignments.html">assignment</a> page for graph based assignments
+	<p>Check Bridges <a href="../newassignments.html">assignment</a> page for map based assignments
 
       </main>
 
