@@ -17,7 +17,7 @@
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
     <script src="./tutorial.js"></script>
 
-    <title>Bridges - GraphAdjList Tutorial</title>
+    <title>Bridges - Mapping Tutorial</title>
 
     <script src="./prettyprint.js" defer></script>
   </head>
@@ -58,14 +58,15 @@
 
 
 	
-	<p>This tutorial gives an introduction to the use of maps in BRIDGES. 
+	<p>This tutorial gives an introduction to the use of maps in BRIDGES. </p>
 
+	<p>
 	 <h3> See also</h3>
 	  <ol>
 
 	    <li> Color <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_color.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_color.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1color_1_1_color.html">[Python]</a> </li>
 	  </ol>
-
+	</p>
 
 	<h2>1. Getting Started: Build a US Map with State boundaries</h2>
 	
@@ -81,12 +82,6 @@
 	up in your gallery.
 	</p> 
 
-	<p>Make sure that you can run the basic tutorial.
-	  Here is the code for this tutorial. The visualization follows that. Hit
-        the 'l' button to turn on the labels.
-
-	</p>
-	
 	<div class="tabs snippet1">
 	  <div onclick="displayCodeSnippet('Java1', 'snippet1', this)">Java</div>
 	  <div onclick="displayCodeSnippet('C++1', 'snippet1', this)">C++</div>
@@ -95,7 +90,7 @@
 
 	<div class="tabContents snippet1">
 	  <div id="Java1" w3-include-html="./Java_Map_Basic.html"></div>
-	  <div id="C++1"  w3-include-html="./Cpp_Map_Basic.html"></div>
+	  <div id="C++1"  w3-include-html="./testing/c++/tut_us_map_p1.cpp.html"></div>
 	  <div id="Python1"  w3-include-html="./Python_Basic_Basic.html"></div>
 	</div>
 
@@ -112,13 +107,13 @@
 	<h2>2. Drawing US Map with all counties</h2>
 
 	<p> The map you created in the first part  had just the states drawn 
-		as polygons. Here will add the counties for each state.  The map
-		continues to use default attributes for boundary and fill colors.
+	  as polygons. Here will add the counties for each state.  The map
+	  continues to use default attributes for boundary and fill colors.
 
 
 	<p> Check out the links to the classes (listed above)
-		that supports these attributes and also details the possible
-		colors and shapes you can use and how to specify them. 
+	  that supports these attributes and also details the possible
+	  colors and shapes you can use and how to specify them. 
 	</p>
 
 	<p> Here is the code that generated the map output with counties.
@@ -146,16 +141,14 @@
 	<h2>3. Advanced Features: Displaying specific states, choosing attributes.</h2>
 
 	<p> In the last part of this tutorial, we show some advanced and customizable  
-		features with maps. We show the ability to select specific states to 
-		be drawn with custom attributes fill and boundary colors. This will
-		be needed when the colors are related to a data attribute, for instance,
-		population size, election results in each county, per-capita income,
-		business sales, etc. In these instances, we need to look at each
-		county and apply a specific color representing the data attribute. This 
-		tutorial illustrates how to iterate through the counties of a state and 		set fill/boundary colors at the state or county level.
-	</p>
-	<p>The following code illustrates these advanced features of maps. The visualization follows that. Hit
-		the 'l' button to turn on the labels.
+	  features with maps. We show the ability to select specific states to 
+	  be drawn with custom attributes fill and boundary colors. This will
+	  be needed when the colors are related to a data attribute, for instance,
+	  population size, election results in each county, per-capita income,
+	  business sales, etc. In these instances, we need to look at each
+	  county and apply a specific color representing the data attribute. This 
+	  tutorial illustrates how to iterate through the counties of a state and
+	  set fill/boundary colors at the state or county level.
 	</p>
 
 	<div class="tabs snippet3">
@@ -176,6 +169,37 @@
 	</iframe>
 	</div>
 	<hr>
+	
+	<h2>4. Overlaying a Data Structure on a Map.</h2>
+
+	<p> BRIDGES also supports displaying a map behind a standard
+	BRIDGES Data Structure. This is only supported for node based
+	visualization like linked list, and graphs. You display your
+	datastructure as usual. You set the location of the nodes of
+	your data structures using latitude and longitude coordinate.
+	Instead of passing the Map as a datastructure, you pass it as
+	an overlay.
+	</p>
+
+	<div class="tabs snippet4">
+	  <div onclick="displayCodeSnippet('Java4', 'snippet4', this)">Java</div>
+	  <div onclick="displayCodeSnippet('C++4', 'snippet4', this)" >C++</div>
+	  <div onclick="displayCodeSnippet('Python4', 'snippet4', this)" >Python</div>
+	</div>
+	<div class="tabContents snippet4">
+	  <div id="Java3" w3-include-html="./Java_Map_Advanced.html"></div>
+	  <div id="C++3"  w3-include-html="./testing/c++/tut_us_map_overlay.cpp.html"></div>
+	  <div id="Python3"  w3-include-html="./Python_Map_Advanced.html"></div>
+	</div>
+	<div class="iframe-wrapper">
+	<iframe src="https://bridges-cs.herokuapp.com/assignments/10180/bridges_public" scrolling="no">
+		<p>Sorry, your browser doesn't seem to support iframes -
+		<a href="https://bridges-cs.herokuapp.com/assignments/10170/bridges_public">Frame Link</a>
+		</p>
+	</iframe>
+	</div>
+	<hr>
+
     <p>Well done! You’ve just created your first Bridges based Map! Congrats on completing this tutorial</p>
 
 	<h2>Going Further</h2>
