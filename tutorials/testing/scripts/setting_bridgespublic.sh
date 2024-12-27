@@ -5,14 +5,14 @@
 if [ "${FORCE_BRIDGES_USERNAME}" = "" ]
 then
     echo "You need to define both FORCE_BRIDGES_USERNAME and FORCE_BRIDGES_APIKEY to export in the environment in config.sh"
-    echo "I suggest runnig it with non bridges_public credentials first to make sure it does what you want."
+    echo "I suggest running it with non bridges_public credentials first to make sure it does what you want."
     exit 1
 fi
    
 if [ "${FORCE_BRIDGES_APIKEY}" = "" ]
 then
     echo "You need to define both FORCE_BRIDGES_USERNAME and FORCE_BRIDGES_APIKEY to export in the environment in config.sh"
-    echo "I suggest runnig it with non bridges_public credentials first to make sure it does what you want."
+    echo "I suggest running it with non bridges_public credentials first to make sure it does what you want."
     exit 1
 fi
 
@@ -105,9 +105,16 @@ FORCE_BRIDGES_ASSIGNMENT=10170 ./tut_graph_p3 9999 fakename fakeapi
 
 FORCE_BRIDGES_ASSIGNMENT=10180 ./tut_linechart 9999 fakename fakeapi
 
-## tutorials added : 7919/24
+## tutorials added : 7/19/24
 
 FORCE_BRIDGES_ASSIGNMENT=10190 ./barchart 9999 fakename fakeapi
+
+
+# Maps (added by Erik 12/27/2024)
+FORCE_BRIDGES_ASSIGNMENT=20150 ./tut_us_map_p1 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=20160 ./tut_us_map_p2 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=20170 ./tut_us_map_p3 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=20180 ./tut_us_map_overlay 9999 fakename fakeapi
 
 
 ## games don't produce useful visualization
