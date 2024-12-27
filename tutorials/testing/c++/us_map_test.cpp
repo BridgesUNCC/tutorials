@@ -1,0 +1,56 @@
+#include <string>
+
+using namespace std;
+
+#include "Bridges.h"
+#include "DataSource.h"
+#include "data_src/USState.h"
+#include "data_src/USCounty.h"
+#include "USMap.h"
+
+using namespace bridges;
+
+// this program illustrates how to access the data of the US state county
+// maps and apply attributes to them
+int main(int argc, char **argv) {
+
+	// create bridges object
+	Bridges bridges (YOUR_ASSSIGNMENT_NUMBER, "YOUR_USER_ID", "YOUR_API_KEY");
+
+	// set title
+	bridges.setTitle("Accessing US State County Maps");
+
+	DataSource ds(&bridges);
+
+	cout << "Retrieving US State County Map Data" << endl;
+
+
+	vector<string> states = {"Vermont", "Iowa"};
+	vector<bridges::dataset::USState> 
+		map_data = ds.getUSStateCountyMapData (states);
+
+
+	// 
+	// now do what needs to be done as part of your assignment
+	// 
+
+	// this will prepare the dataset for visualization
+	// print info
+	for (auto& st : map_data) {
+		cout << "State: " << st.getStateName() << "\n";
+		unordered_map<string, County> counties = st.getCounties();
+		st.setViewCountiesFlag(false);
+		int k = 0; 
+		for (auto c : counties) {
+			c.second.setHideFlag(true);
+			if (k++ < 10)
+			cout <<  "\t" << c.second.getCountyName() << endl; 
+		}
+	}
+	USMap us_maps(map_data);
+
+	bridges.setDataStructure(&us_maps);
+	bridges.visualize();
+
+	return 0;
+}

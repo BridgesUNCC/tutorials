@@ -1,0 +1,53 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">#include </span><span class="Constant">&lt;string&gt;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> std;
+
+<span class="PreProc">#include </span><span class="Constant">&quot;Bridges.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;DataSource.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;data_src/USState.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;data_src/USCounty.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;USMap.h&quot;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> bridges;
+
+<span class="Comment">// this program illustrates how to access the data of the US state county</span>
+<span class="Comment">// maps and apply attributes to them</span>
+<span class="Type">int</span> main(<span class="Type">int</span> argc, <span class="Type">char</span> **argv) {
+
+	<span class="Comment">// create bridges object</span>
+	Bridges bridges (YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;YOUR_USER_ID&quot;</span>, <span class="Constant">&quot;YOUR_API_KEY&quot;</span>);
+
+	<span class="Comment">// set title</span>
+	bridges.setTitle(<span class="Constant">&quot;Overlaying Data Structure on a US Map&quot;</span>);
+	bridges.setDescription(<span class="Constant">&quot;All US states, No Counties&quot;</span>);
+
+	<span class="Comment">//Some BRIDGES visualization with location</span>
+	SLelement&lt;string&gt;  *el0 = <span class="Statement">new</span> SLelement&lt;string&gt; (<span class="Constant">&quot;Charlotte&quot;</span>, <span class="Constant">&quot;Go Niners!&quot;</span>);
+	el0-&gt;setLocation(-<span class="Constant">80.8431</span>, <span class="Constant">35.2271</span>); <span class="Comment">//35.2271N, 80.8431W</span>
+	el0-&gt;setSize(.<span class="Constant">1</span>);
+	bridges.setDataStructure(el0);
+
+	<span class="Comment">//Getting map</span>
+	DataSource ds(&amp;bridges);
+	vector&lt;bridges::dataset::USState&gt; map_data = ds.getUSMapCountyData ();
+
+	<span class="Comment">//Styling Mecklenburg County, NC</span>
+	<span class="Statement">for</span> (<span class="Type">auto</span>&amp; s : map_data) {
+	  <span class="Statement">if</span> (s.getStateName() == <span class="Constant">&quot;North Carolina&quot;</span>) {
+	    <span class="Type">auto</span>&amp; mecklenburg = s.accessCounties()[<span class="Constant">&quot;37119&quot;</span>]; <span class="Comment">//access by fips code</span>
+	    mecklenburg.setFillColor(Color(<span class="Constant">0</span>,<span class="Constant">255</span>,<span class="Constant">0</span>));
+	  }
+	}
+	<span class="Comment">//Setting Map overlay</span>
+	USMap us_maps(map_data);
+	bridges.setMap (us_maps);
+
+	<span class="Comment">//Visualize!</span>
+	bridges.visualize();
+
+	<span class="Statement">delete</span> el0;
+
+	<span class="Statement">return</span> <span class="Constant">0</span>;
+}
+</pre>

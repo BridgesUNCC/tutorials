@@ -1,0 +1,40 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">from</span> bridges.bridges <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.data_src_dependent <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.dl_element <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.us_map <span class="PreProc">import</span> *
+
+<span class="Statement">def</span> <span class="Identifier">main</span>():
+    <span class="Comment"># create the Bridges object, set credentials</span>
+    bridges = Bridges(YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;</span><span class="Constant">YOUR_USER_ID</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">YOUR_API_KEY</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment"># set title, description</span>
+    bridges.set_title(<span class="Constant">&quot;</span><span class="Constant">Test of US Map with State Boundaries</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment">#pass no parameters for the whole map</span>
+    state_info = get_us_map_county_data([<span class="Constant">'</span><span class="Constant">Vermont</span><span class="Constant">'</span>, <span class="Constant">'</span><span class="Constant">Iowa</span><span class="Constant">'</span>, <span class="Constant">'</span><span class="Constant">North Carolina</span><span class="Constant">'</span>])
+    <span class="Statement">for</span> s <span class="Statement">in</span> state_info:
+        <span class="Statement">if</span> s.state_name == <span class="Constant">&quot;</span><span class="Constant">North Carolina</span><span class="Constant">&quot;</span>:
+            <span class="Statement">for</span> c <span class="Statement">in</span> s.counties:
+                <span class="Statement">if</span> c.geoid == <span class="Constant">&quot;</span><span class="Constant">37119</span><span class="Constant">&quot;</span>: <span class="Comment">#access by FIPS code</span>
+                    c.fill_color = Color(<span class="Constant">0</span>,<span class="Constant">255</span>,<span class="Constant">0</span>)
+
+
+    my_map = USMap(state_info)
+    bridges.set_map(my_map)
+
+    <span class="Comment">#placeholder for assigning a viz type to BRIDGES</span>
+    el0 = DLelement()
+    el0.set_location(-<span class="Constant">80.8431</span>, <span class="Constant">35.2271</span>) <span class="Comment"># Charlotte, NC: 35.2271N, 80.8431W</span>
+    el0.size = <span class="Constant">.5</span>
+
+    <span class="Comment">#visualizes iowa and california with counties</span>
+    bridges.set_data_structure(el0)
+    bridges.visualize()
+
+
+
+
+<span class="Statement">if</span> __name__ == <span class="Constant">'</span><span class="Constant">__main__</span><span class="Constant">'</span>:
+    main()
+</pre>

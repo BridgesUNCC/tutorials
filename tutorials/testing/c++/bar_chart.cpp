@@ -22,13 +22,13 @@ int main (int argc, char **argv) {
 	BarChart bar;
 	bar.setTitle("Hello World BarChart!");
 	bar.setSubTitle("Woah!");
-	bar.setCategoriesLabel("Continents");
-	bar.setValueLabel("Population (in millions)");
+	bar.setBinsLabel("Country");
+	bar.setSeriesLabel("Population");
 	bar.setBarOrientation("horizontal");
 	bar.setTooltipSuffix(" millions");
 
 	vector<string> bins{"Africa", "America", "Asia", "Europe"};
-	bar.setCategories(bins);
+	bar.setSeriesBins(bins);
 
 	vector<double> y1{10, 100, 40, 23};
 	vector<double> y2{100, 10, 80, 232};

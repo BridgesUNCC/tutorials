@@ -2,6 +2,7 @@
 <span class="PreProc">from</span> bridges.bridges <span class="PreProc">import</span> *
 <span class="PreProc">from</span> bridges.data_src_dependent <span class="PreProc">import</span> *
 <span class="PreProc">from</span> bridges.dl_element <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.us_map <span class="PreProc">import</span> *
 
 <span class="Statement">def</span> <span class="Identifier">main</span>():
     <span class="Comment"># create the Bridges object, set credentials</span>
@@ -13,14 +14,13 @@
     <span class="Comment">#pass no parameters for the whole map</span>
     state_info = get_map([<span class="Constant">'</span><span class="Constant">iowa</span><span class="Constant">'</span>, <span class="Constant">'</span><span class="Constant">california</span><span class="Constant">'</span>, <span class="Constant">'</span><span class="Constant">north carolina</span><span class="Constant">'</span>])
 
-    bridges.set_coord_system_type(<span class="Constant">'</span><span class="Constant">albersusa</span><span class="Constant">'</span>)
-    bridges.set_map_overlay(<span class="Identifier">True</span>)
-    bridges.set_map(state_info)
-    bridges.set_json_flag(<span class="Identifier">True</span>)
+    my_map = USMap(state_info)
+    bridges.set_map(my_map)
 
     <span class="Comment">#placeholder for assigning a viz type to BRIDGES</span>
     el0 = DLelement()
 
+    bridges.set_json_flag = <span class="Constant">1</span>
     <span class="Comment">#visualizes iowa and california with counties</span>
     bridges.set_data_structure(el0)
     bridges.visualize()
@@ -36,6 +36,7 @@
         state_info[i].fill_color = <span class="Constant">'</span><span class="Constant">red</span><span class="Constant">'</span>
 
     bridges.visualize()
+    bridges.set_json_flag = <span class="Constant">0</span>
 
     <span class="Comment">#show counties and make color green, stroke black, and width 1.0</span>
     <span class="Statement">for</span> i <span class="Statement">in</span> <span class="Identifier">range</span>(<span class="Identifier">len</span>(state_info)):
