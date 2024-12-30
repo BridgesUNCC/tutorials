@@ -34,16 +34,16 @@
 	  Maps in BRIDGES are retrieved from GeoJSON descriptions of the map
 		geometry. Currently, we support both the US map and World map. The
 		current interface permits US maps to be colored by state or by county.
-		The color can reflect any user chose attibute, such as population, 
-		sales, crime rates, etc. and dependent on the data being mapped to 
-		the state. Counties </p>
+		The color can reflect any user chosen attibute, such as population, 
+		sales, crime rates, etc. and is dependent on the data being mapped to 
+		the state. </p>
 
 	<p>Counties for the US map can also be displayed and attributes assigned
 		similar to states. For instance, election data can be mapped to each
-		county for a more detail look of voting patterns over the years.</p>
+		county for a more detailed look of voting patterns over the years.</p>
 
 	<p>In addition, maps can be a background  for other BRIDGES data 
-		structures. For instance, you can imaging graph problems being 
+		structures. For instance, you can image graph problems being 
 		solved as a function of the US cities (Minimum Spanning Tree, Traveling
 		Salesman Problem, etc.)</p>
 
@@ -72,7 +72,8 @@
 	
 	<p> In the first part of the tutorial, we will create a US map of all states showing each state's boundary. A city is marked as a linked list 
 		node and will be the data structure for this tutorial. The map uses
-		a default color for each state's boundary and a default fill color. 
+		a default color for each state's boundary and a default fill color for
+		each state. 
 	</p>
 	<p>
 	If you follow the URL given to you when the application runs, it
@@ -142,11 +143,12 @@
 
 	<p> In the last part of this tutorial, we show some advanced and customizable  
 	  features with maps. We show the ability to select specific states to 
-	  be drawn with custom attributes fill and boundary colors. This will
+	  be drawn with custom attributes with  boundary and fill colors. This will
 	  be needed when the colors are related to a data attribute, for instance,
 	  population size, election results in each county, per-capita income,
-	  business sales, etc. In these instances, we need to look at each
-	  county and apply a specific color representing the data attribute. This 
+	  business sales by state, etc. In these instances, we need to look at each
+	  state or county and apply a specific color representing the data 
+	  attribute. This 
 	  tutorial illustrates how to iterate through the counties of a state and
 	  set fill/boundary colors at the state or county level.
 	</p>
@@ -174,9 +176,9 @@
 
 	<p> BRIDGES also supports displaying a map behind a standard
 	BRIDGES Data Structure. This is only supported for node based
-	visualization like linked list, and graphs. You display your
-	datastructure as usual. You set the location of the nodes of
-	your data structures using latitude and longitude coordinate.
+	visualization like linked lists and graphs. You display your
+	data structure as usual. You set the location of the nodes of
+	your data structures using latitude and longitude coordinates.
 	Instead of passing the Map as a datastructure, you pass it as
 	an overlay.
 	</p>
