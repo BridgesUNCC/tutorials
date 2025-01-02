@@ -22,14 +22,8 @@
 
 	bridges.setMap(wm);
 
-	SLelement&lt;string&gt;  *el0 = <span class="Statement">new</span> SLelement&lt;string&gt; (<span class="Constant">&quot;Charlotte&quot;</span>, <span class="Constant">&quot;Go Niners!&quot;</span>);
-	el0-&gt;setLocation(-<span class="Constant">80.8431</span>, <span class="Constant">35.2271</span>); <span class="Comment">//35.2271N, 80.8431W</span>
-
-
-	bridges.setDataStructure(el0);
+	bridges.setDataStructure(&amp;wm);
 	bridges.visualize();
-
-	<span class="Statement">delete</span> el0;
 
 	<span class="Statement">return</span> <span class="Constant">0</span>;
 }

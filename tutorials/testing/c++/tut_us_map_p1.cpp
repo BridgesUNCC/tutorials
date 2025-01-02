@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 	Bridges bridges (YOUR_ASSSIGNMENT_NUMBER, "YOUR_USER_ID", "YOUR_API_KEY");
 
 	// set title
-	bridges.setTitle("Tutorial: Drawing US Map with State Boundariess");
+	bridges.setTitle("Tutorial: Drawing US Map with State Boundaries");
 	bridges.setDescription("All US states, No Counties");
 
 	// create a data source object

@@ -7,29 +7,46 @@
 <span class="PreProc">#include </span><span class="Constant">&quot;DataSource.h&quot;</span>
 <span class="PreProc">#include </span><span class="Constant">&quot;WorldMap.h&quot;</span>
 
+<span class="PreProc">#include </span><span class="Constant">&quot;USMap.h&quot;</span>
+
 <span class="Statement">using</span> <span class="Type">namespace</span> bridges;
 
+<span class="Comment">// this program illustrates how to access the data of the US state county</span>
+<span class="Comment">// maps and apply attributes to them</span>
 <span class="Type">int</span> main(<span class="Type">int</span> argc, <span class="Type">char</span> **argv) {
 
 	<span class="Comment">// create bridges object</span>
 	Bridges bridges (YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;YOUR_USER_ID&quot;</span>, <span class="Constant">&quot;YOUR_API_KEY&quot;</span>);
 
 	<span class="Comment">// set title</span>
-	bridges.setTitle(<span class="Constant">&quot;Using World Map overlay&quot;</span>);
+	bridges.setTitle(<span class="Constant">&quot;Accessing US State County Maps&quot;</span>);
 
 	DataSource ds(&amp;bridges);
-	WorldMap wm;
 
-	bridges.setMap(wm);
+	cout &lt;&lt; <span class="Constant">&quot;Retrieving US State County Map Data&quot;</span> &lt;&lt; endl;
+
+
+	<span class="Comment">// case 1 : map and counties  of  a few states</span>
+
+	bridges.setMap(WorldMap());
 
 	SLelement&lt;string&gt;  *el0 = <span class="Statement">new</span> SLelement&lt;string&gt; (<span class="Constant">&quot;Charlotte&quot;</span>, <span class="Constant">&quot;Go Niners!&quot;</span>);
 	el0-&gt;setLocation(-<span class="Constant">80.8431</span>, <span class="Constant">35.2271</span>); <span class="Comment">//35.2271N, 80.8431W</span>
 
+	<span class="Statement">for</span> (<span class="Type">int</span> k = <span class="Constant">0</span>; k &lt; <span class="Constant">101</span>; k++) {
+		<span class="Statement">if</span> (k) {
+			SLelement&lt;string&gt;  *el = <span class="Statement">new</span> SLelement&lt;string&gt; (<span class="Constant">&quot;Charlotte&quot;</span>, <span class="Constant">&quot;Go Niners!&quot;</span>);
+			el-&gt;setLocation(-<span class="Constant">80.8431</span>, <span class="Constant">35.2271</span>); <span class="Comment">//35.2271N, 80.8431W</span>
+
+			el-&gt;setNext(el0);
+			el0 = el;
+		}
+	}
 
 	bridges.setDataStructure(el0);
+
 	bridges.visualize();
 
-	<span class="Statement">delete</span> el0;
 
 	<span class="Statement">return</span> <span class="Constant">0</span>;
 }
