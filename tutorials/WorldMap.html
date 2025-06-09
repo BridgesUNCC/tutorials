@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"/> -->
+    <meta name="author" content="Bridges"/>
+    <meta name="description" content="Bridges Tutorials"/>
+
+    <link rel="stylesheet" type="text/css" href="./tutorial_header.css" />
+    <link rel="stylesheet" type="text/css" href="./tutorial.css" />
+    <link rel="stylesheet" type="text/css" href="./vim.css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <link rel="shortcut icon" href="http://bridgesuncc.github.io/favicon.png"/>
+    <script src="https://www.w3schools.com/lib/w3data.js"></script>
+    <script src="./tutorial.js"></script>
+
+    <title>Bridges - Mapping Tutorial</title>
+
+    <script src="./prettyprint.js" defer></script>
+  </head>
+
+  <body>
+    <div>
+
+      <header w3-include-html="./Tutorial_Header.html"></header>
+      <main>
+	<h1>  Geographical Maps in BRIDGES </h1>
+	
+	<h2>How does the World Map API work BRIDGES? </h2>
+	<p>
+	  Maps in BRIDGES are retrieved from GeoJSON descriptions of the map
+		geometry. Currently, we support both the US maps and World maps. The
+		current interface permits US maps to be colored by state or by county.
+        World maps can be colored only by country, as each country has its own
+		way demarcating their states, divisions, districts, etc.
+		The color can reflect any user chosen attibute, such as population, 
+		sales, crime rates, etc. and is dependent on the data being mapped to 
+		the country. </p>
+
+	<p> This page details world maps and its API
+
+	<p> World map can be a background  for other BRIDGES data 
+		structures. For instance, you can image graph problems being 
+		solved as a function of the World cities (Minimum Spanning Tree, Traveling
+		Salesman Problem, etc.), or it could be specific to a certain country</p>
+
+	<p>In this tutorial, we will illustrate the basic UI capabilities of 
+		BRIDGES World Maps that will be helpful in building map based assignments.
+
+	  <br/><br/><img class="img-responsive" width="400em" src="./images/usmap.png"/><br/><br/>
+	  <br/><br/>
+
+	  </p>
+	<hr/>
+
+
+	
+	<p>This tutorial gives an introduction to the use of world maps in BRIDGES. </p>
+
+	<p>
+	 <h3> See also the following BRIDGES classes</h3>
+	  <ol>
+
+	    <li> Color <a href="http://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_color.html">[Java]</a> <a href="http://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_color.html">[C++]</a> <a href="http://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1color_1_1_color.html">[Python]</a> </li>
+	    <li> USMap <a href="https://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_u_s_map.html">[Java]</a> <a href="https://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_u_s_map.html">[C++]</a> <a href="https://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1us__map_1_1_u_s_map.html">[Python]</a> </li>
+	    <li> USState <a href="https://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1data__src__dependent_1_1_u_s_state.html">[Java]</a> <a href="https://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1dataset_1_1_u_s_state.html">[C++]</a> <a href="https://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1data__src__dependent_1_1us__state_1_1_u_s_state.html">[Python]</a> </li>
+	    <li> USCounty <a href="https://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1data__src__dependent_1_1_u_s_county.html">[Java]</a> <a href="https://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1dataset_1_1_u_s_county.html">[C++]</a> <a href="https://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1data__src__dependent_1_1us__county_1_1_u_s_county.html">[Python]</a> </li>
+	    <li> WorldMap <a href="https://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_world_map.html">[Java]</a> <a href="https://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_world_map.html">[C++]</a> <a href="https://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1world__map_1_1_world_map.html">[Python]</a> </li>
+	  </ol>
+	</p>
+
+	<h2>1. Getting Started: Build a World Map with Country  boundaries</h2>
+	
+	<p> In the first part of the tutorial, we will create a World map of all countries 
+        showing each country's boundary.  The map uses
+		a default color for each country's boundary and a default fill color for
+		each country. 
+	</p>
+	<p>
+	If you follow the URL given to you when the application runs, it
+	will get to the Bridges webpage that shows your output. 
+	You do not need to be logged into your BRIDGES account to see the 
+	output. If you are logged into your account, the output will show 
+	up in your gallery.
+	</p> 
+
+	<div class="tabs snippet1">
+	  <div onclick="displayCodeSnippet('Java1', 'snippet1', this)">Java</div>
+	  <div onclick="displayCodeSnippet('C++1', 'snippet1', this)">C++</div>
+	  <div onclick="displayCodeSnippet('Python1', 'snippet1', this)">Python</div>
+	</div>
+
+	<div class="tabContents snippet1">
+	  <div id="Java1" w3-include-html="./testing/java/tut_us_map_p1.java.html"></div>
+	  <div id="C++1"  w3-include-html="./testing/c++/tut_us_map_p1.cpp.html"></div>
+	  <div id="Python1"  w3-include-html="./testing/python/tut_us_map_p1.py.html"></div>
+	</div>
+
+	<div class="iframe-wrapper">
+	<iframe src="https://bridges-cs.herokuapp.com/assignments/20150/bridges_public" scrolling="no">
+		<p>Sorry, your browser doesn't seem to support iframes -
+		<a href="https://bridges-cs.herokuapp.com/assignments/20150/bridges_public">Frame Link</a>
+		</p>
+	</iframe>
+	</div>
+	<hr>
+	
+
+	<h2>2. Advanced Features: Displaying specific countries, choosing attributes.</h2>
+
+	<p> In this tutorial, we show some advanced and customizable  
+	  features with maps. We show the ability to select specific countries to 
+	  be drawn with custom attributes with  boundary and fill colors. This will
+	  be needed when the colors are related to a data attribute, for instance,
+	  population size, election results in each county, per-capita income,
+	  business sales by state, etc. In these instances, we need to look at each
+	  state or county and apply a specific color representing the data 
+	  attribute. This 
+	  tutorial illustrates how to iterate through the counties of a state and
+	  set fill/boundary colors at the state or county level.
+	</p>
+
+	<div class="tabs snippet3">
+	  <div onclick="displayCodeSnippet('Java2', 'snippet2', this)">Java</div>
+	  <div onclick="displayCodeSnippet('C++2', 'snippet2', this)" >C++</div>
+	  <div onclick="displayCodeSnippet('Python2', 'snippet2', this)" >Python</div>
+	</div>
+	<div class="tabContents snippet3">
+	  <div id="Java2" w3-include-html="./testing/java/tut_worldmap_p2.java.html"></div>
+	  <div id="C++2"  w3-include-html="./testing/c++/tut_worldmap_p2.cpp.html"></div>
+	  <div id="Python2"  w3-include-html="./testing/python/tut_worldmap_p3.py.html"></div>
+	</div>
+	<div class="iframe-wrapper">
+	<iframe src="https://bridges-cs.herokuapp.com/assignments/20170/bridges_public" scrolling="no">
+		<p>Sorry, your browser doesn't seem to support iframes -
+		<a href="https://bridges-cs.herokuapp.com/assignments/20170/bridges_public">Frame Link</a>
+		</p>
+	</iframe>
+	</div>
+	<hr>
+	
+	<h2>3. Overlaying a Data Structure on a Map.</h2>
+
+	<p>BRIDGES also supports displaying a map behind a standard
+	BRIDGES Data Structure. This is only supported for node based
+	visualization like linked lists and graphs. You display your
+	data structure as usual. You set the location of the nodes of
+	your data structures using latitude and longitude coordinates.
+	Instead of passing the Map as a data structure, you pass it as
+	an overlay.
+	</p>
+
+	<p>
+	  In the following exmaple, we set nodes at the locations of different countries.
+	</p>
+
+	<div class="tabs snippet4">
+	  <div onclick="displayCodeSnippet('Java3', 'snippet3', this)">Java</div>
+	  <div onclick="displayCodeSnippet('C++3', 'snippet3', this)">C++</div>
+	  <div onclick="displayCodeSnippet('Python3', 'snippet3', this)">Python</div>
+	</div>
+	<div class="tabContents snippet4">
+	  <div id="Java4" w3-include-html="./testing/java/tut_worldmap_p3.java.html"></div>
+	  <div id="C++4" w3-include-html="./testing/c++/tut_worldmap_p3.cpp.html"></div>
+	  <div id="Python4" w3-include-html="./testing/python/tut_worldmap_p3.py.html"></div>
+	</div>
+	<div class="iframe-wrapper">
+	<iframe src="https://bridges-cs.herokuapp.com/assignments/20180/bridges_public" scrolling="no">
+		<p>Sorry, your browser doesn't seem to support iframes -
+		<a href="https://bridges-cs.herokuapp.com/assignments/20180/bridges_public">Frame Link</a>
+		</p>
+	</iframe>
+	</div>
+	<hr>
+
+	
+    <p>Well done! You’ve just created your first Bridges based Map! Congrats on completing this tutorial</p>
+
+	<h2>Going Further</h2>
+	<p>Check Bridges <a href="../newassignments.html">assignment</a> page for map based assignments
+
+      </main>
+
+      <footer w3-include-html="./Tutorial_Footer.html"></footer>
+
+    </div>
+  </body>
+</html>
