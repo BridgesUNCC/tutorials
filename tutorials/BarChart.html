@@ -29,44 +29,49 @@
       <main>
 		<h1> Bar Chart Tutorial </h1>
 		<p>
-		BRIDGES provides a basic set of <a href="https://en.wikipedia.org/wiki/Bar_chart">bar charts</a>
-		for plotting information based on category grouping.</p>
-		
-		<p> First one defines the category groupings with
-		setCategories(). One can label the category axis with
-		setCategoriesLabel(). When hovering on a bar, a
-		tooltip will appear and one can add units to the
-		values by using setTooltipSuffix().</p>
-
-		<p>One can have a single series of data to make a
-		  standard bar chart or multiple series of data to
-		  make a clustered bar chart. One specifies a data
-		  serie using addDataSeries() which takes the name of
-		  the series and an array of floats which provide the
-		  value of that serie for each of the category.</p>
-
-		<p>The BarChart can have a title (see getTitle() and
-		  setTitle()) and a subtitle (see setSubTitle() and
-		  getSubTitle()). The bars can be either vertical bars
-		  or horizontal bars using setBarOrientation()</p>
-		
+		BRIDGES provides a basic set of 
+		<a href="https://en.wikipedia.org/wiki/Bar_chart">bar charts</a>
+		to represent categorical data as a series of rectangular bars with length
+ 		proportional to the values they represent. 
+		</p>
 		<p>
-		This tutorial will illustrate the use of bar charts to
-		display some population information (which is made
-		up).</p>
-
+		Series in a bar chart provides data for a number of categories
+ 		(sometimes called bins). Categories are defined using
+ 		setCategories() and the series are added using addDataSeries().
+ 		The series are rendered in the order in which they were added. Once
+ 		a series has been added, it can not be modified.
+		</p>
+ 		<p>
+		One should always define the categories before adding data. Changing the
+		categories after series have been added will throw exceptions;
+ 		adding series with different number of values than the number of
+ 		categories will throw an exception.
+		</p>
+ 
+ 		<p>
+		The Bar charts can have a title, subtitle. The charts can be
+		horizontal or vertically oriented, using setBarOrientation().
+		</p>
+		<p>
+ 		A tooltip indicating the value of a series in a particular bin is
+		displayed by hovering on a bar. One can append a string to the
+ 		value using setTooltipSuffix() to specify units in the tooltip if desired.
+		</p>
+		<p>
+		This tutorial will illustrate  the use of bar charts for some datasets
+		</p>
 		<h3> See also </h3>
 		<p>See complete documentation of bar charts for 
-		<a href = "https://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_bar_chart.html"> C++</a>, 
-		<a href = "https://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_bar_chart.html"> Java </a>, or 
-		<a href = "https://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1bar__chart_1_1_bar_chart.html"> Python</a>
+		<a href = "https://bridgesuncc.github.io/doc/cxx-api/current/html/classbridges_1_1datastructure_1_1_line_chart.html"> C++</a>, 
+		<a href = "https://bridgesuncc.github.io/doc/java-api/current/html/classbridges_1_1base_1_1_line_chart.html"> Java </a>, or 
+		<a href = "https://bridgesuncc.github.io/doc/python-api/current/html/classbridges_1_1line__chart_1_1_line_chart.html"> Python</a>
 		</p>
 
 		<h2>Code Example</h2>
 		
 		<p>
 		  Here is the code for this tutorial. The expected visualization follows that. 
-		</p>
+    	</p>
     
     <div class="tabs snippet1">
       <div onclick="displayCodeSnippet('Java', 'snippet1', this)">Java</div>
@@ -88,9 +93,9 @@
     </p> 
 	</p> 
     <div class="iframe-wrapper">
-    <iframe src="https://bridges-cs.herokuapp.com/assignments/10190/bridges_public" scrolling="no">
+    <iframe src="https://bridges-cs.herokuapp.com/assignments/10180/bridges_public" scrolling="no">
         <p>Sorry, your browser doesn't seem to support iframes -
-            <a href="https://bridges-cs.herokuapp.com/assignments/10190/bridges_public" scrolling="no">Frame Link</a>
+            <a href="https://bridges-cs.herokuapp.com/assignments/10180/bridges_public" scrolling="no">Frame Link</a>
         </p>
     </iframe>
     </div>
