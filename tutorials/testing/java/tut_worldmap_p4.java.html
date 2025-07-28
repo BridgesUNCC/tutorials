@@ -1,0 +1,106 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">import</span> java.util.ArrayList;
+<span class="PreProc">import</span> java.util.Map;
+<span class="PreProc">import</span> bridges.connect.Bridges;
+<span class="PreProc">import</span> bridges.connect.DataSource;
+<span class="PreProc">import</span> bridges.data_src_dependent.Country;
+<span class="PreProc">import</span> bridges.base.WorldMap;
+<span class="PreProc">import</span> bridges.base.Color;
+<span class="PreProc">import</span> bridges.base.Rectangle;
+<span class="PreProc">import</span> bridges.base.Circle;
+<span class="PreProc">import</span> bridges.base.Text;
+<span class="PreProc">import</span> bridges.base.SymbolCollection;
+
+
+<span class="Comment">// This tutorial illustrates how to access the data of the World map with </span>
+<span class="Comment">// boundaries; the countries are filled with default color</span>
+<span class="Type">public</span> <span class="Type">class</span> tut_worldmap_p4 {
+	<span class="Type">public</span> <span class="Type">static</span> <span class="Type">void</span> main(String[] args) <span class="Type">throws</span> Exception {
+
+		<span class="Comment">// create Bridges object</span>
+		Bridges bridges = <span class="Statement">new</span> Bridges (YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;YOUR_USER_ID&quot;</span>,
+												<span class="Constant">&quot;YOUR_API_KEY&quot;</span>);
+		<span class="Comment">// set title, description</span>
+		bridges.setTitle(<span class="Constant">&quot;Tutorial: Demonstrating overlaying World Map with Cities at their locations&quot;</span>);
+		bridges.setDescription(<span class="Constant">&quot;Uses symbols to represent city locations&quot;</span>);
+
+		<span class="Comment">// get data source object</span>
+		DataSource ds = bridges.getDataSource();
+
+
+		<span class="Comment">// use symbols to represent cities</span>
+		SymbolCollection sc = <span class="Statement">new</span> SymbolCollection();
+
+		<span class="Comment">// circle properties</span>
+		Color red = <span class="Statement">new</span> Color (<span class="Constant">&quot;red&quot;</span>);
+		Color blue = <span class="Statement">new</span> Color (<span class="Constant">&quot;blue&quot;</span>);
+
+		<span class="Comment">// label properties</span>
+		<span class="Type">float</span> fsize = <span class="Constant">12.f</span>, str = <span class="Constant">1.0f</span>;
+		Color scol = <span class="Statement">new</span> Color(<span class="Constant">&quot;purple&quot;</span>);
+
+
+
+		<span class="Comment">// charlotte</span>
+		Circle  c1 = <span class="Statement">new</span> Circle(-<span class="Constant">80.8431f</span>, <span class="Constant">35.2271f</span>, <span class="Constant">1.f</span>);
+			c1.setStrokeColor(red);
+			c1.setFillColor (blue);
+		sc.addSymbol(c1);
+
+		Text l1 = <span class="Statement">new</span> Text();
+			l1.setAnchorLocation(-<span class="Constant">79.8431f</span>, <span class="Constant">35.2271f</span>);
+			l1.setFontSize(fsize);
+			l1.setStrokeColor(scol);
+			l1.setText(<span class="Constant">&quot;Charlotte&quot;</span>);
+		sc.addSymbol(l1);
+
+		<span class="Comment">// paris</span>
+		Circle  c2 = <span class="Statement">new</span> Circle(<span class="Constant">2.3514f</span>, <span class="Constant">48.8576f</span>, <span class="Constant">1.f</span>);
+			c2.setStrokeColor(red);
+			c2.setFillColor (blue);
+		sc.addSymbol(c2);
+		Text l2 = <span class="Statement">new</span> Text();
+			l2.setAnchorLocation(<span class="Constant">3.3514f</span>, <span class="Constant">48.8576f</span>);
+			l2.setFontSize(fsize);
+			l2.setStrokeColor(scol);
+			l2.setText(<span class="Constant">&quot;Paris&quot;</span>);
+		sc.addSymbol(l2);
+
+		<span class="Comment">// berlin</span>
+		Circle  c3 = <span class="Statement">new</span> Circle(<span class="Constant">13.4f</span>, <span class="Constant">52.52f</span>, <span class="Constant">1.f</span>);
+			c3.setStrokeColor(red);
+			c3.setFillColor (blue);
+		sc.addSymbol(c3);
+		Text l3 = <span class="Statement">new</span> Text();
+			l3.setAnchorLocation(<span class="Constant">14.4f</span>, <span class="Constant">52.52f</span>);
+			l3.setFontSize(fsize);
+			l3.setStrokeColor(scol);
+			l3.setText(<span class="Constant">&quot;Berlin&quot;</span>);
+		sc.addSymbol(l3);
+		<span class="Comment">// delhi</span>
+		Circle  c4 = <span class="Statement">new</span> Circle(<span class="Constant">77.208f</span>, <span class="Constant">28.614f</span>, <span class="Constant">1.f</span>);
+			c4.setStrokeColor(red);
+			c4.setFillColor (blue);
+		sc.addSymbol(c4);
+		Text l4 = <span class="Statement">new</span> Text();
+			l4.setAnchorLocation(<span class="Constant">78.208f</span>, <span class="Constant">28.614f</span>);
+			l4.setFontSize(fsize);
+			l4.setStrokeColor(scol);
+			l4.setText(<span class="Constant">&quot;New Delhi&quot;</span>);
+		sc.addSymbol(l4);
+
+		<span class="Comment">// get us map data - states and boundaries</span>
+		ArrayList&lt;Country&gt; wm_data = ds.getWorldMapData ();
+
+		WorldMap wm = <span class="Statement">new</span> WorldMap(wm_data);
+		bridges.setMap(wm);
+		bridges.setLabelFlag(<span class="Constant">true</span>);
+
+		<span class="Comment">// set data structure</span>
+		bridges.setDataStructure(sc);
+
+		<span class="Comment">// visualize</span>
+		bridges.visualize();
+	}
+}
+</pre>

@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Map;
+import bridges.connect.Bridges;
+import bridges.connect.DataSource;
+import bridges.data_src_dependent.USState;
+import bridges.data_src_dependent.USCounty;
+import bridges.base.SLelement;
+import bridges.base.USMap;
+import bridges.base.Color;
+
+
+// This tutorial illustrates how to access the data of the US map with state
+// boundaries with different colors for states and its boundaries
+// It also illustrates how to draw all the counties 
+
+public class tut_usmap_p2 {
+	public static void main(String[] args) throws Exception {
+
+		// create Bridges object
+		Bridges bridges = new Bridges (YOUR_ASSSIGNMENT_NUMBER, "YOUR_USER_ID", "YOUR_API_KEY");
+		// set title, description
+		bridges.setTitle("Tutorial: Drawing US Map with State Boundaries, and State Counties");
+		bridges.setDescription("All US states, All Counties");
+
+		// get data source object
+		DataSource ds = bridges.getDataSource();
+
+		// get us map data - states and boundaries
+		ArrayList<USState> map_data = ds.getUSMapCountyData ();
+
+		// create a USMap object with the map data
+		USMap us_maps = new USMap(map_data);
+
+		// set data structure
+		bridges.setDataStructure(us_maps);
+
+		// visualize
+		bridges.visualize();
+	}
+}

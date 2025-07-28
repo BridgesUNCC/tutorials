@@ -1,0 +1,29 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">from</span> bridges.bridges <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.data_src_dependent <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.dl_element <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.us_map <span class="PreProc">import</span> *
+
+<span class="Statement">def</span> <span class="Identifier">main</span>():
+    <span class="Comment"># create the Bridges object, set credentials</span>
+    bridges = Bridges(YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;</span><span class="Constant">YOUR_USER_ID</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">YOUR_API_KEY</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment"># set title, description</span>
+    bridges.set_title(<span class="Constant">&quot;</span><span class="Constant">Tutorial: Drawing US Map with State Boundaries, and State Counties</span><span class="Constant">&quot;</span>)
+    bridges.set_description(<span class="Constant">&quot;</span><span class="Constant">All US States, All Counties</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment">#pass no parameters for the whole map</span>
+    state_info = get_us_map_county_data()
+
+    my_map = USMap(state_info)
+
+    <span class="Comment">#visualizes iowa and california with counties</span>
+    bridges.set_data_structure(my_map)
+    bridges.visualize()
+
+
+
+
+<span class="Statement">if</span> __name__ == <span class="Constant">'</span><span class="Constant">__main__</span><span class="Constant">'</span>:
+    main()
+</pre>

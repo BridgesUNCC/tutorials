@@ -1,0 +1,46 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">#include </span><span class="Constant">&lt;string&gt;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> std;
+
+<span class="PreProc">#include </span><span class="Constant">&quot;Bridges.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;DataSource.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;WorldMap.h&quot;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> bridges;
+
+<span class="Type">int</span> main(<span class="Type">int</span> argc, <span class="Type">char</span> **argv) {
+
+	<span class="Comment">// create bridges object</span>
+	Bridges bridges (YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;YOUR_USER_ID&quot;</span>, <span class="Constant">&quot;YOUR_API_KEY&quot;</span>);
+
+	<span class="Comment">// set title</span>
+	bridges.setTitle(<span class="Constant">&quot;Drawing a World Map&quot;</span>);
+
+	<span class="Comment">// set description</span>
+	bridges.setDescription(<span class="Constant">&quot;This example illustrates how to draw a world map of a few countries&quot;</span>);
+
+	<span class="Comment">// create a data source</span>
+	DataSource ds(&amp;bridges);
+
+	<span class="Comment">// specify a few countries to draw their maps</span>
+	vector&lt;string&gt; countries = {<span class="Constant">&quot;Brazil&quot;</span>, <span class="Constant">&quot;Argentina&quot;</span>, <span class="Constant">&quot;Germany&quot;</span>, <span class="Constant">&quot;France&quot;</span>, <span class="Constant">&quot;Spain&quot;</span>,
+							<span class="Constant">&quot;United States of America&quot;</span>};
+	vector&lt;Country&gt;  wm_data = ds.getWorldMapData({countries});
+
+	<span class="Comment">// lets change colors of each country</span>
+	wm_data[<span class="Constant">0</span>].setFillColor(Color(<span class="Constant">&quot;lightgoldenrodyellow&quot;</span>));
+	wm_data[<span class="Constant">1</span>].setFillColor(Color(<span class="Constant">&quot;lightskyblue&quot;</span>));
+	wm_data[<span class="Constant">2</span>].setFillColor(Color(<span class="Constant">&quot;indigo&quot;</span>));
+	wm_data[<span class="Constant">3</span>].setFillColor(Color(<span class="Constant">&quot;orangered&quot;</span>));
+	wm_data[<span class="Constant">4</span>].setFillColor(Color(<span class="Constant">&quot;olive&quot;</span>));
+	wm_data[<span class="Constant">5</span>].setFillColor(Color(<span class="Constant">&quot;springgreen&quot;</span>));
+
+	WorldMap wm (wm_data);
+
+	bridges.setDataStructure(&amp;wm);
+	bridges.visualize();
+
+	<span class="Statement">return</span> <span class="Constant">0</span>;
+}
+</pre>

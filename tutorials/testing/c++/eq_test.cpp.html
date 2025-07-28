@@ -1,0 +1,56 @@
+<pre id='vimCodeElement'>
+
+<span class="PreProc">#include </span><span class="Constant">&lt;string&gt;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> std;
+
+<span class="PreProc">#include </span><span class="Constant">&quot;Bridges.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;DataSource.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;data_src/EarthquakeUSGS.h&quot;</span>
+
+
+<span class="Statement">using</span> <span class="Type">namespace</span> bridges;
+
+
+<span class="Comment">// This program fragment illustrates how to access the USGS earthquake data</span>
+<span class="Type">int</span> main(<span class="Type">int</span> argc, <span class="Type">char</span> **argv) {
+
+	<span class="Comment">// create Bridges object</span>
+	Bridges bridges (YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;YOUR_USER_ID&quot;</span>,
+		<span class="Constant">&quot;YOUR_API_KEY&quot;</span>);
+	<span class="Comment">// set title</span>
+	bridges.setTitle(<span class="Constant">&quot;Accessing USGIS Earthquake Data (USGIS Data)&quot;</span>);
+
+	<span class="Comment">// read the earth quake  data</span>
+	DataSource ds (&amp;bridges);
+	<span class="Type">int</span> max_quakes = <span class="Constant">100</span>;
+	vector&lt;EarthquakeUSGS&gt; eq_list = ds.getEarthquakeUSGSData(max_quakes);
+
+	std::cout&lt;&lt;<span class="Constant">&quot;Retrieved recent &quot;</span>&lt;&lt;eq_list.size()&lt;&lt;<span class="Constant">&quot; Earthquakes</span><span class="Special">\n</span><span class="Constant">&quot;</span>;
+	<span class="Comment">// print the first few quake records</span>
+	<span class="Statement">for</span> (<span class="Type">int</span> k = <span class="Constant">0</span>; k &lt; <span class="Constant">3</span>; k++) {
+		cout &lt;&lt; <span class="Constant">&quot;Earthquake &quot;</span> &lt;&lt; k &lt;&lt; <span class="Constant">&quot;: </span><span class="Special">\n</span><span class="Constant">&quot;</span>;
+		<span class="Type">const</span> <span class="Type">auto</span>&amp; eq = eq_list[k];
+		cout &lt;&lt; <span class="Constant">&quot;</span><span class="Special">\t</span><span class="Constant">Magnitude:&quot;</span> &lt;&lt; eq.getMagnitude() &lt;&lt; endl
+		&lt;&lt; <span class="Constant">&quot;</span><span class="Special">\t</span><span class="Constant">Date:&quot;</span> &lt;&lt; eq.getDateStr() &lt;&lt; endl
+		&lt;&lt; <span class="Constant">&quot;</span><span class="Special">\t</span><span class="Constant">Location: &quot;</span> &lt;&lt;  eq.getLocation() &lt;&lt; endl
+		&lt;&lt; <span class="Constant">&quot;</span><span class="Special">\t</span><span class="Constant">Lat/Long:&quot;</span>  &lt;&lt; eq.getLatit() &lt;&lt; <span class="Constant">&quot;,&quot;</span> &lt;&lt;
+		eq.getLongit() &lt;&lt; endl;
+	}
+
+	eq_list = ds.getEarthquakeUSGSData(); <span class="Comment">//This is a different code path</span>
+	std::cout&lt;&lt;<span class="Constant">&quot;Retrieved all &quot;</span>&lt;&lt;eq_list.size()&lt;&lt;<span class="Constant">&quot; Earthquakes</span><span class="Special">\n</span><span class="Constant">&quot;</span>;
+	<span class="Comment">// print the first few quake records</span>
+	<span class="Statement">for</span> (<span class="Type">int</span> k = <span class="Constant">0</span>; k &lt; <span class="Constant">3</span>; k++) {
+		cout &lt;&lt; <span class="Constant">&quot;Earthquake &quot;</span> &lt;&lt; k &lt;&lt; <span class="Constant">&quot;: </span><span class="Special">\n</span><span class="Constant">&quot;</span>;
+		<span class="Type">const</span> <span class="Type">auto</span>&amp; eq = eq_list[k];
+		cout &lt;&lt; <span class="Constant">&quot;</span><span class="Special">\t</span><span class="Constant">Magnitude:&quot;</span> &lt;&lt; eq.getMagnitude() &lt;&lt; endl
+		&lt;&lt; <span class="Constant">&quot;</span><span class="Special">\t</span><span class="Constant">Date:&quot;</span> &lt;&lt; eq.getDateStr() &lt;&lt; endl
+		&lt;&lt; <span class="Constant">&quot;</span><span class="Special">\t</span><span class="Constant">Location: &quot;</span> &lt;&lt;  eq.getLocation() &lt;&lt; endl
+		&lt;&lt; <span class="Constant">&quot;</span><span class="Special">\t</span><span class="Constant">Lat/Long:&quot;</span>  &lt;&lt; eq.getLatit() &lt;&lt; <span class="Constant">&quot;,&quot;</span> &lt;&lt;
+		eq.getLongit() &lt;&lt; endl;
+	}
+
+	<span class="Statement">return</span> <span class="Constant">0</span>;
+}
+</pre>

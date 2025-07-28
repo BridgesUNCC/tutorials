@@ -1,0 +1,36 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">from</span> bridges.bridges <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.data_src_dependent <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.dl_element <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.world_map <span class="PreProc">import</span> *
+
+<span class="Statement">def</span> <span class="Identifier">main</span>():
+    <span class="Comment"># create the Bridges object, set credentials</span>
+    bridges = Bridges(YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;</span><span class="Constant">YOUR_USER_ID</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">YOUR_API_KEY</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment"># set title, description</span>
+    bridges.set_title(<span class="Constant">&quot;</span><span class="Constant">World Map Using BRIDGES</span><span class="Constant">&quot;</span>)
+    bridges.set_description(<span class="Constant">&quot;</span><span class="Constant">Draws a set of specified countries</span><span class="Constant">&quot;</span>)
+
+    countries = [<span class="Constant">&quot;</span><span class="Constant">Brazil</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">Argentina</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">Germany</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">France</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">Spain</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">United States of America</span><span class="Constant">&quot;</span>]
+
+    <span class="Comment"># with no arguments to the function, gets all countries of the world</span>
+    country_data = get_world_map_data(countries)
+
+    <span class="Comment">#lets change colors of each country</span>
+    country_data[<span class="Constant">0</span>].fill_color = Color(<span class="Constant">&quot;</span><span class="Constant">lightgoldenrodyellow</span><span class="Constant">&quot;</span>)
+    country_data[<span class="Constant">1</span>].fill_color = Color(<span class="Constant">&quot;</span><span class="Constant">lightskyblue</span><span class="Constant">&quot;</span>)
+    country_data[<span class="Constant">2</span>].fill_color = Color(<span class="Constant">&quot;</span><span class="Constant">indigo</span><span class="Constant">&quot;</span>)
+    country_data[<span class="Constant">3</span>].fill_color = Color(<span class="Constant">&quot;</span><span class="Constant">orangered</span><span class="Constant">&quot;</span>)
+    country_data[<span class="Constant">4</span>].fill_color = Color(<span class="Constant">&quot;</span><span class="Constant">olive</span><span class="Constant">&quot;</span>)
+    country_data[<span class="Constant">5</span>].fill_color = Color(<span class="Constant">&quot;</span><span class="Constant">springgreen</span><span class="Constant">&quot;</span>)
+
+    wm = WorldMap(country_data)
+
+    <span class="Comment">#visualizes world map</span>
+    bridges.set_data_structure(wm)
+    bridges.visualize()
+
+<span class="Statement">if</span> __name__ == <span class="Constant">'</span><span class="Constant">__main__</span><span class="Constant">'</span>:
+    main()
+</pre>

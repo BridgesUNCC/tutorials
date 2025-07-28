@@ -1,0 +1,82 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">from</span> bridges.bridges <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.data_src_dependent <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.dl_element <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.us_map <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.symbol_collection <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.circle <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.rectangle <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.polyline <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.text <span class="PreProc">import</span> *
+
+<span class="Comment"># This program illustrates how to access the data of the US map with state</span>
+<span class="Comment"># boundaries with 2 cities represented as symbols overlaid</span>
+
+<span class="Statement">def</span> <span class="Identifier">main</span>():
+    <span class="Comment"># create the Bridges object, set credentials</span>
+    bridges = Bridges(YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;</span><span class="Constant">YOUR_USER_ID</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">YOUR_API_KEY</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment"># set title, description</span>
+    bridges.set_title(<span class="Constant">&quot;</span><span class="Constant">Tutorial: Drawing US Map with  Symbols Overlaid</span><span class="Constant">&quot;</span>)
+    bridges.set_description(<span class="Constant">&quot;</span><span class="Constant">All US states, with 2 Cities located</span><span class="Constant">&quot;</span>)
+
+
+	<span class="Comment"># draw some symbols to indicate two cities</span>
+    sc = SymbolCollection()
+
+    <span class="Comment"># create a circle symbol</span>
+    c = Circle(locx=-<span class="Constant">80.8431</span>, locy=<span class="Constant">35.2271</span>, r=<span class="Constant">1.</span>)
+    c.stroke_color = <span class="Constant">&quot;</span><span class="Constant">red</span><span class="Constant">&quot;</span>
+    c.fill_color = <span class="Constant">&quot;</span><span class="Constant">cyan</span><span class="Constant">&quot;</span>
+    sc.add_symbol(c)
+
+    <span class="Comment"># create a label</span>
+    l = Text()
+    l.set_anchor_location(-<span class="Constant">79.8431</span>, <span class="Constant">35.2271</span>)
+    l.font_size = <span class="Constant">18.0</span>
+    l.stroke_width = <span class="Constant">1.0</span>
+    l.text = <span class="Constant">&quot;</span><span class="Constant">Charlotte</span><span class="Constant">&quot;</span>
+    l.stroke_color = <span class="Constant">&quot;</span><span class="Constant">purple</span><span class="Constant">&quot;</span>
+    l.opacity = <span class="Constant">1.0</span>
+    sc.add_symbol(l)
+
+    <span class="Comment"># create a rectangle symbol</span>
+    r = Rectangle(locx=-<span class="Constant">82.998</span>, locy=<span class="Constant">39.96</span>, w=<span class="Constant">1.</span>, h=<span class="Constant">1.</span>)
+    r.stroke_color = <span class="Constant">&quot;</span><span class="Constant">red</span><span class="Constant">&quot;</span>
+    r.fill_color = <span class="Constant">&quot;</span><span class="Constant">lightgreen</span><span class="Constant">&quot;</span>
+    sc.add_symbol(r)
+
+    <span class="Comment"># create a label</span>
+    l2 = Text()
+    l2.set_anchor_location(-<span class="Constant">81.998</span>, <span class="Constant">39.96</span>)
+    l2.font_size = <span class="Constant">18.0</span>
+    l2.stroke_width = <span class="Constant">1.0</span>
+    l2.text = <span class="Constant">&quot;</span><span class="Constant">Columbus</span><span class="Constant">&quot;</span>
+    l2.stroke_color = <span class="Constant">&quot;</span><span class="Constant">purple</span><span class="Constant">&quot;</span>
+    l2.opacity = <span class="Constant">1.0</span>
+    sc.add_symbol(l2)
+
+    p3 = Polyline()
+    p3.add_point(-<span class="Constant">80</span>, <span class="Constant">41</span>)
+    p3.add_point(-<span class="Constant">85</span>, <span class="Constant">41</span>)
+    p3.stroke_color = <span class="Constant">&quot;</span><span class="Constant">magenta</span><span class="Constant">&quot;</span>
+    p3.stroke_width = <span class="Constant">0.5</span>
+    p3.opacity = <span class="Constant">1.</span>
+    sc.add_symbol(p3)
+
+    <span class="Comment"># create a USMap object with the map data</span>
+
+    <span class="Comment">#pass no parameters for the whole map</span>
+    state_info = get_us_map_data()
+    map_data = USMap(state_info)
+
+    bridges.set_map(map_data)
+
+    <span class="Comment"># set data structure, visualize</span>
+    bridges.set_data_structure(sc)
+    bridges.visualize()
+
+
+<span class="Statement">if</span> __name__ == <span class="Constant">'</span><span class="Constant">__main__</span><span class="Constant">'</span>:
+    main()
+</pre>

@@ -1,0 +1,66 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">#include </span><span class="Constant">&lt;string&gt;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> std;
+
+<span class="PreProc">#include </span><span class="Constant">&quot;Bridges.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;DataSource.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;WorldMap.h&quot;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> bridges;
+
+<span class="Type">int</span> main(<span class="Type">int</span> argc, <span class="Type">char</span> **argv) {
+
+	<span class="Comment">// create bridges object</span>
+	Bridges bridges (YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;YOUR_USER_ID&quot;</span>, <span class="Constant">&quot;YOUR_API_KEY&quot;</span>);
+
+	<span class="Comment">// set title</span>
+	bridges.setTitle(<span class="Constant">&quot;Drawing a World Map&quot;</span>);
+
+	<span class="Comment">// set description</span>
+	bridges.setDescription(<span class="Constant">&quot;This example illustrates overlaying a data structure with a world map overlay&quot;</span>);
+
+	<span class="Comment">// create a data source</span>
+	DataSource ds(&amp;bridges);
+
+
+	<span class="Comment">// add a Graph object with nodes to represent cities in a few countries</span>
+	GraphAdjList&lt;string&gt; gr;
+	gr.addVertex(<span class="Constant">&quot;Charlotte&quot;</span>, <span class="Constant">&quot;Charlotte,NC&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Charlotte&quot;</span>)-&gt;setLocation(-<span class="Constant">80.8431</span>, <span class="Constant">35.2271</span>);
+		gr.getVertex(<span class="Constant">&quot;Charlotte&quot;</span>)-&gt;setColor(<span class="Constant">&quot;crimson&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Charlotte&quot;</span>)-&gt;setSize(<span class="Constant">2</span>.);
+	gr.addVertex(<span class="Constant">&quot;Paris&quot;</span>, <span class="Constant">&quot;Paris, France&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Paris&quot;</span>)-&gt;setLocation(<span class="Constant">2.3514</span>, <span class="Constant">48.8576</span>);
+		gr.getVertex(<span class="Constant">&quot;Paris&quot;</span>)-&gt;setColor(<span class="Constant">&quot;crimson&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Paris&quot;</span>)-&gt;setSize(<span class="Constant">2</span>.);
+	gr.addVertex(<span class="Constant">&quot;Berlin&quot;</span>, <span class="Constant">&quot;Paris, France&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Berlin&quot;</span>)-&gt;setLocation(<span class="Constant">13.4</span>, <span class="Constant">52.52</span>);
+		gr.getVertex(<span class="Constant">&quot;Berlin&quot;</span>)-&gt;setColor(<span class="Constant">&quot;crimson&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Berlin&quot;</span>)-&gt;setSize(<span class="Constant">2</span>.);
+	gr.addVertex(<span class="Constant">&quot;New Delhi&quot;</span>, <span class="Constant">&quot;New Delhi, India&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;New Delhi&quot;</span>)-&gt;setLocation(<span class="Constant">77.208</span>, <span class="Constant">28.614</span>);
+		gr.getVertex(<span class="Constant">&quot;New Delhi&quot;</span>)-&gt;setColor(<span class="Constant">&quot;crimson&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;New Delhi&quot;</span>)-&gt;setSize(<span class="Constant">2</span>.);
+	gr.addVertex(<span class="Constant">&quot;Buenos Aires&quot;</span>, <span class="Constant">&quot;Buenos Aires, Argenina&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Buenos Aires&quot;</span>)-&gt;setLocation(-<span class="Constant">58.382</span>, -<span class="Constant">34.60</span>);
+		gr.getVertex(<span class="Constant">&quot;Buenos Aires&quot;</span>)-&gt;setColor(<span class="Constant">&quot;crimson&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Buenos Aires&quot;</span>)-&gt;setSize(<span class="Constant">2</span>.);
+	gr.addVertex(<span class="Constant">&quot;Esperanza Station, Antarctica&quot;</span>, <span class="Constant">&quot;Esperanza Station, Antarctica&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Esperanza Station, Antarctica&quot;</span>)-&gt;setLocation(-<span class="Constant">56.59</span>, -<span class="Constant">63.24</span>);
+		gr.getVertex(<span class="Constant">&quot;Esperanza Station, Antarctica&quot;</span>)-&gt;setColor(<span class="Constant">&quot;crimson&quot;</span>);
+		gr.getVertex(<span class="Constant">&quot;Esperanza Station, Antarctica&quot;</span>)-&gt;setSize(<span class="Constant">2</span>.);
+
+
+	<span class="Comment">// This construct does not allow for styling the countries. But it still</span>
+	<span class="Comment">//shows the worldmap  as overlay</span>
+	WorldMap wm;
+	bridges.setMap(wm);
+
+	<span class="Comment">// visualize</span>
+	bridges.setDataStructure(&amp;gr);
+	bridges.visualize();
+
+	<span class="Statement">return</span> <span class="Constant">0</span>;
+}
+</pre>

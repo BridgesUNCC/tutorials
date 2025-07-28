@@ -8,16 +8,16 @@ def main():
     bridges = Bridges(YOUR_ASSSIGNMENT_NUMBER, "YOUR_USER_ID", "YOUR_API_KEY")
 
     # set title, description
-    bridges.set_title("World Map Overlay")
+    bridges.set_title("World Map Using BRIDGES")
 
-    my_map = WorldMap()
+    #country_data = get_world_map_data(['Australia', 'Germany', 'France'])
+    country_data = get_world_map_data()
+    wm = WorldMap(country_data)
     
     #visualizes world map
-    bridges.set_data_structure(my_map)
+    bridges.set_data_structure(wm)
+    bridges.set_json_flag(True)
     bridges.visualize()
-
-
-
 
 if __name__ == '__main__':
     main()

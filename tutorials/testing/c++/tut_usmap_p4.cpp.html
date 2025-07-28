@@ -1,0 +1,91 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">#include </span><span class="Constant">&lt;string&gt;</span>
+<span class="PreProc">#include </span><span class="Constant">&lt;vector&gt;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> std;
+
+<span class="PreProc">#include </span><span class="Constant">&quot;Bridges.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;DataSource.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;data_src/USState.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;data_src/USCounty.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;SymbolCollection.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;Circle.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;Rectangle.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;Text.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;USMap.h&quot;</span>
+
+
+<span class="PreProc">#include </span><span class="Constant">&quot;Polyline.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;Polygon.h&quot;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> bridges;
+
+<span class="Comment">// this program illustrates how to access the data of the US state county</span>
+<span class="Comment">// maps and also draw symbols using the Bridges shape collection </span>
+<span class="Type">int</span> main(<span class="Type">int</span> argc, <span class="Type">char</span> **argv) {
+
+	<span class="Comment">// create bridges object</span>
+	Bridges bridges (YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;YOUR_USER_ID&quot;</span>, <span class="Constant">&quot;YOUR_API_KEY&quot;</span>);
+
+	<span class="Comment">// set title</span>
+	bridges.setTitle(<span class="Constant">&quot;Accessing US State County Maps Example with Symbols&quot;</span>);
+	bridges.setDescription(<span class="Constant">&quot;Example illustrates map data working with Bridges shape collection symbols&quot;</span>);
+
+	DataSource ds(&amp;bridges);
+
+	cout &lt;&lt; <span class="Constant">&quot;Retrieving US State County Map Data&quot;</span> &lt;&lt; endl;
+
+	vector&lt;bridges::dataset::USState&gt; map_data = ds.getUSMapData ();
+	USMap us_maps(map_data);
+	bridges.setMap(us_maps);
+
+	<span class="Comment">// create a circle symbol</span>
+	SymbolCollection sc;
+		Circle c(-<span class="Constant">80.8431</span>, <span class="Constant">35.2271</span>, <span class="Constant">1</span>.);
+		c.setStrokeColor(<span class="Constant">&quot;red&quot;</span>);
+		c.setFillColor(<span class="Constant">&quot;cyan&quot;</span>);
+
+	Text l;
+		<span class="Type">float</span> loc[<span class="Constant">2</span>] = {-<span class="Constant">79.8431</span>, <span class="Constant">35.2271</span>};
+		l.setAnchorLocation(loc);
+		l.setFontSize(<span class="Constant">18.0f</span>);
+		l.setStrokeWidth(<span class="Constant">1.0f</span>);
+		l.setText(<span class="Constant">&quot;Charlotte&quot;</span>);
+		l.setStrokeColor(<span class="Constant">&quot;purple&quot;</span>);
+		l.setOpacity(<span class="Constant">1.0f</span>);
+    sc.addSymbol(l);
+
+
+	<span class="Comment">// create a rectangle symbol</span>
+	sc.addSymbol(c);
+		Rectangle r(-<span class="Constant">82.998</span>, <span class="Constant">39.96</span>, <span class="Constant">1</span>., <span class="Constant">1</span>.);
+		r.setStrokeColor(<span class="Constant">&quot;red&quot;</span>);
+		r.setFillColor(<span class="Constant">&quot;lightgreen&quot;</span>);
+	sc.addSymbol(r);
+
+
+	Text l2;
+		<span class="Type">float</span> loc2[<span class="Constant">2</span>] = {-<span class="Constant">81.998</span>, <span class="Constant">39.96</span>};
+		l2.setAnchorLocation(loc2);
+		l2.setFontSize(<span class="Constant">18.0f</span>);
+		l2.setStrokeWidth(<span class="Constant">1.0f</span>);
+		l2.setText(<span class="Constant">&quot;Columbus&quot;</span>);
+		l2.setStrokeColor(<span class="Constant">&quot;purple&quot;</span>);
+		l2.setOpacity(<span class="Constant">1.0f</span>);
+    sc.addSymbol(l2);
+
+	Polyline p3;
+		p3.addPoint(-<span class="Constant">80</span>, <span class="Constant">41</span>);
+		p3.addPoint(-<span class="Constant">85</span>, <span class="Constant">41</span>);
+		p3.setStrokeColor(<span class="Constant">&quot;magenta&quot;</span>);
+		p3.setStrokeWidth(<span class="Constant">0.5f</span>);
+		p3.setOpacity(<span class="Constant">1.0f</span>);
+	sc.addSymbol(p3);
+
+	<span class="Comment">// set data structure, visualize</span>
+	bridges.setDataStructure(sc);
+	bridges.visualize();
+
+	<span class="Statement">return</span> <span class="Constant">0</span>;
+}
+</pre>

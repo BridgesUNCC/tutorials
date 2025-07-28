@@ -1,0 +1,95 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">from</span> bridges.bridges <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.data_src_dependent <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.dl_element <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.world_map <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.graph_adj_list <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.rectangle <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.circle <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.text <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.symbol_collection <span class="PreProc">import</span> *
+
+<span class="Statement">def</span> <span class="Identifier">main</span>():
+    <span class="Comment"># create the Bridges object, set credentials</span>
+    bridges = Bridges(YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;</span><span class="Constant">YOUR_USER_ID</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">YOUR_API_KEY</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment"># set title, description</span>
+    bridges.set_title(<span class="Constant">&quot;</span><span class="Constant">World Map Drawing Using BRIDGES</span><span class="Constant">&quot;</span>)
+    bridges.set_description(<span class="Constant">&quot;</span><span class="Constant">Labels a few cities using BRIDGES Symbols</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment"># with no arguments to the function, gets all countries of the world</span>
+    country_data = get_world_map_data()
+    wm = WorldMap(country_data)
+
+	<span class="Comment"># lets add  a points to the map to illustrate how to identify cities </span>
+    <span class="Comment"># we will use symbols for this</span>
+
+    scol = <span class="Constant">&quot;</span><span class="Constant">red</span><span class="Constant">&quot;</span>
+    fcol = <span class="Constant">&quot;</span><span class="Constant">blue</span><span class="Constant">&quot;</span>
+    fsize = <span class="Constant">12.</span>
+    str_size = <span class="Constant">1.</span>
+
+    sc = SymbolCollection()
+
+    c1 = Circle(locx=-<span class="Constant">80.8431</span>, locy=<span class="Constant">35.2271</span>, r=<span class="Constant">1.</span>)
+    c1.stroke_color = scol
+    c1.fillcolor = fcol
+    c1.strok_size = <span class="Identifier">str</span>;
+    sc.add_symbol(c1);
+
+    l1 = Text()
+    l1.set_anchor_location(-<span class="Constant">79.8431</span>, <span class="Constant">35.2271</span>)
+    l1.font_size = fsize
+    l1.text = <span class="Constant">&quot;</span><span class="Constant">Charlotte</span><span class="Constant">&quot;</span>
+    sc.add_symbol(l1);
+
+    c2 = Circle(locx=<span class="Constant">2.3514</span>, locy=<span class="Constant">48.8576</span>, r=<span class="Constant">1.</span>)
+    c2.stroke_color = scol
+    c2.fillcolor = fcol
+    c2.font_size = fsize
+    c2.strok_size = <span class="Identifier">str</span>;
+    sc.add_symbol(c2);
+
+    l2 = Text()
+    l2.set_anchor_location(<span class="Constant">3.3514</span>,<span class="Constant">48.8576</span>)
+    l2.font_size = fsize
+    l2.text = <span class="Constant">&quot;</span><span class="Constant">Paris</span><span class="Constant">&quot;</span>
+    sc.add_symbol(l2);
+
+    c3 = Circle(locx=<span class="Constant">13.4</span>, locy=<span class="Constant">52.52</span>, r=<span class="Constant">1.</span>)
+    c3.stroke_color = scol
+    c3.fillcolor = fcol
+    c3.font_size = fsize
+    c3.strok_size = <span class="Identifier">str</span>;
+    sc.add_symbol(c3);
+
+    l3 = Text()
+    l3.set_anchor_location(<span class="Constant">14.4</span>, <span class="Constant">52.52</span>)
+    l3.font_size = fsize
+    l3.text = <span class="Constant">&quot;</span><span class="Constant">Charlotte</span><span class="Constant">&quot;</span>
+    sc.add_symbol(l3);
+
+    c4 = Circle(locx=<span class="Constant">77.208</span>, locy=<span class="Constant">28.614</span>, r=<span class="Constant">1.</span>)
+    c4.stroke_color = scol
+    c4.fillcolor = fcol
+    c4.font_size = fsize
+    c4.strok_size = <span class="Identifier">str</span>;
+    sc.add_symbol(c4);
+
+    l4 = Text()
+    l4.set_anchor_location(<span class="Constant">78.208</span>, <span class="Constant">28.614</span>)
+    l4.font_size = fsize
+    l4.text = <span class="Constant">&quot;</span><span class="Constant">New Delhi</span><span class="Constant">&quot;</span>
+    sc.add_symbol(l4);
+
+
+	<span class="Comment"># add the map overlay</span>
+    bridges.set_map(wm)
+
+    <span class="Comment">#visualizes world map</span>
+    bridges.set_data_structure(sc)
+    bridges.visualize()
+
+<span class="Statement">if</span> __name__ == <span class="Constant">'</span><span class="Constant">__main__</span><span class="Constant">'</span>:
+    main()
+</pre>
