@@ -52,7 +52,8 @@ FORCE_BRIDGES_ASSIGNMENT=9130 ./circ_dllist 9999 fakename fakeapi
 FORCE_BRIDGES_ASSIGNMENT=9140 ./mllist 9999 fakename fakeapi
 
 
-FORCE_BRIDGES_ASSIGNMENT=9200 ./tree 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=9201 ./tut_tree_p1 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=9202 ./tut_tree_p1 9999 fakename fakeapi
 
 FORCE_BRIDGES_ASSIGNMENT=9210 ./bintree 9999 fakename fakeapi
 
