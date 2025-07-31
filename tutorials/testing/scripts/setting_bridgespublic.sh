@@ -56,6 +56,8 @@ FORCE_BRIDGES_ASSIGNMENT=9201 ./tut_tree_p1 9999 fakename fakeapi
 FORCE_BRIDGES_ASSIGNMENT=9202 ./tut_tree_p1 9999 fakename fakeapi
 
 FORCE_BRIDGES_ASSIGNMENT=9210 ./bintree 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=9211 ./tut_bintree_p1 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=9212 ./tut_bintree_p2 9999 fakename fakeapi
 
 FORCE_BRIDGES_ASSIGNMENT=9220 ./bst_eq 9999 fakename fakeapi
 
