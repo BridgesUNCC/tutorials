@@ -18,9 +18,17 @@
 	bridges.setTitle(<span class="Constant">&quot;Using World Map overlay&quot;</span>);
 
 	DataSource ds(&amp;bridges);
-	WorldMap wm;
+	 vector&lt;string&gt; countries = {<span class="Constant">&quot;Falkland Islands&quot;</span>, <span class="Constant">&quot;Australia&quot;</span>, <span class="Constant">&quot;Germany&quot;</span>, <span class="Constant">&quot;France&quot;</span>, <span class="Constant">&quot;Spain&quot;</span>, <span class="Constant">&quot;United States of America&quot;</span>};
+	vector&lt;Country&gt;  wm_data = ds.getWorldMapData({countries});
+<span class="Comment">//	vector&lt;Country&gt;  wm_data = ds.getWorldMapData();</span>
 
-	bridges.setMap(wm);
+	<span class="Statement">for</span> (<span class="Type">auto</span> k = <span class="Constant">0</span>; k &lt; wm_data.size(); k++) {
+		wm_data[k].setFillColor(Color(<span class="Constant">&quot;lightblue&quot;</span>));
+		wm_data[k].setStrokeColor(Color(<span class="Constant">&quot;green&quot;</span>));
+		wm_data[k].setStrokeWidth(<span class="Constant">1</span>.);
+	}
+
+	WorldMap wm (wm_data);
 
 	bridges.setDataStructure(&amp;wm);
 	bridges.visualize();

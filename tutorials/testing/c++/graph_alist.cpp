@@ -67,7 +67,6 @@ int main(int argc, char **argv) {
 		}
 	}
 
-
 	// Next, we illustrate traversing the adacency list and color the
 	// movie nodes adjacent to the two actors
 

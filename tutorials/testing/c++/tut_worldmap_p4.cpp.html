@@ -1,0 +1,109 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">#include </span><span class="Constant">&lt;string&gt;</span>
+<span class="PreProc">#include </span><span class="Constant">&lt;vector&gt;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> std;
+
+<span class="PreProc">#include </span><span class="Constant">&quot;Bridges.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;DataSource.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;WorldMap.h&quot;</span>
+
+<span class="PreProc">#include </span><span class="Constant">&quot;SymbolCollection.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;Circle.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;Polyline.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;Rectangle.h&quot;</span>
+<span class="PreProc">#include </span><span class="Constant">&quot;Text.h&quot;</span>
+
+<span class="Statement">using</span> <span class="Type">namespace</span> bridges;
+
+<span class="Type">int</span> main(<span class="Type">int</span> argc, <span class="Type">char</span> **argv) {
+
+	<span class="Comment">// create bridges object</span>
+	Bridges bridges (YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;YOUR_USER_ID&quot;</span>, <span class="Constant">&quot;YOUR_API_KEY&quot;</span>);
+
+	<span class="Comment">// set title</span>
+	bridges.setTitle(<span class="Constant">&quot;Drawing a World Map&quot;</span>);
+
+	<span class="Comment">// set description</span>
+	bridges.setDescription(<span class="Constant">&quot;This example illustrates overlaying symbols to label cities on a world map overlay&quot;</span>);
+
+	<span class="Comment">// create a data source</span>
+	DataSource ds(&amp;bridges);
+
+
+	<span class="Comment">// add symbols </span>
+	SymbolCollection sc;
+
+	<span class="Comment">// plot a bunch of cities</span>
+	Circle c(-<span class="Constant">80.8431</span>, <span class="Constant">35.2271</span>, <span class="Constant">1.8</span>);
+		c.setStrokeColor(<span class="Constant">&quot;red&quot;</span>);
+		c.setFillColor(<span class="Constant">&quot;cyan&quot;</span>);
+	sc.addSymbol(c);
+
+	Text l;
+		<span class="Type">float</span> loc[<span class="Constant">2</span>] = {-<span class="Constant">79.8431</span>, <span class="Constant">35.2271</span>};
+		l.setAnchorLocation(loc);
+		l.setFontSize(<span class="Constant">10.0f</span>);
+		l.setStrokeWidth(<span class="Constant">1.0f</span>);
+		l.setText(<span class="Constant">&quot;Charlotte&quot;</span>);
+		l.setStrokeColor(<span class="Constant">&quot;purple&quot;</span>);
+		l.setOpacity(<span class="Constant">1.0f</span>);
+    sc.addSymbol(l);
+
+	Circle c2(<span class="Constant">2.3514</span>, <span class="Constant">48.8576</span>, <span class="Constant">1</span>.);
+		c2.setStrokeColor(<span class="Constant">&quot;red&quot;</span>);
+		c2.setFillColor(<span class="Constant">&quot;cyan&quot;</span>);
+	sc.addSymbol(c2);
+
+	Text l2;
+		<span class="Type">float</span> loc2[<span class="Constant">2</span>] = {<span class="Constant">3.3514</span>, <span class="Constant">48.8576</span>};
+		l2.setAnchorLocation(loc2);
+		l2.setFontSize(<span class="Constant">10.0f</span>);
+		l2.setStrokeWidth(<span class="Constant">1.0f</span>);
+		l2.setText(<span class="Constant">&quot;Paris&quot;</span>);
+		l2.setStrokeColor(<span class="Constant">&quot;purple&quot;</span>);
+		l2.setOpacity(<span class="Constant">1.0f</span>);
+    sc.addSymbol(l2);
+
+	Circle c3(<span class="Constant">13.4</span>, <span class="Constant">52.52</span>, <span class="Constant">1</span>.);
+		c3.setStrokeColor(<span class="Constant">&quot;red&quot;</span>);
+		c3.setFillColor(<span class="Constant">&quot;cyan&quot;</span>);
+	sc.addSymbol(c3);
+
+	Text l3;
+		<span class="Type">float</span> loc3[<span class="Constant">2</span>] = {<span class="Constant">14.4</span>, <span class="Constant">52.52</span>};
+		l3.setAnchorLocation(loc3);
+		l3.setFontSize(<span class="Constant">10.0f</span>);
+		l3.setStrokeWidth(<span class="Constant">1.0f</span>);
+		l3.setText(<span class="Constant">&quot;Berlin&quot;</span>);
+		l3.setStrokeColor(<span class="Constant">&quot;purple&quot;</span>);
+		l3.setOpacity(<span class="Constant">1.0f</span>);
+    sc.addSymbol(l3);
+
+	Circle c4(<span class="Constant">77.208</span>, <span class="Constant">28.614</span>, <span class="Constant">1</span>.);
+		c4.setStrokeColor(<span class="Constant">&quot;red&quot;</span>);
+		c4.setFillColor(<span class="Constant">&quot;cyan&quot;</span>);
+	sc.addSymbol(c4);
+
+	Text l4;
+		<span class="Type">float</span> loc4[<span class="Constant">2</span>] = {<span class="Constant">78.208</span>, <span class="Constant">28.614</span>};
+		l4.setAnchorLocation(loc4);
+		l4.setFontSize(<span class="Constant">10.0f</span>);
+		l4.setStrokeWidth(<span class="Constant">1.0f</span>);
+		l4.setText(<span class="Constant">&quot;New Delhi&quot;</span>);
+		l4.setStrokeColor(<span class="Constant">&quot;purple&quot;</span>);
+		l4.setOpacity(<span class="Constant">1.0f</span>);
+    sc.addSymbol(l4);
+
+	<span class="Comment">// add the world map</span>
+	vector&lt;Country&gt;  wm_data = ds.getWorldMapData();
+	WorldMap wm (wm_data);
+	bridges.setMap(wm);
+
+	<span class="Comment">// visualize</span>
+	bridges.setDataStructure(sc);
+	bridges.visualize();
+
+	<span class="Statement">return</span> <span class="Constant">0</span>;
+}
+</pre>

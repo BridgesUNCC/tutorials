@@ -24,8 +24,8 @@
     a1 = <span class="Constant">&quot;</span><span class="Constant">Kevin_Bacon_(I)</span><span class="Constant">&quot;</span>
     a2 = <span class="Constant">&quot;</span><span class="Constant">Denzel_Washington</span><span class="Constant">&quot;</span>
 
-    g.add_vertex(a1, <span class="Constant">&quot;&quot;</span>)
-    g.add_vertex(a2, <span class="Constant">&quot;&quot;</span>)
+    g.add_vertex(a1, <span class="Constant">&quot;</span><span class="Constant">Kevin Bacon</span><span class="Constant">&quot;</span>)
+    g.add_vertex(a2, <span class="Constant">&quot;</span><span class="Constant">Denzel Washington</span><span class="Constant">&quot;</span>)
 
     g.get_vertex(a1).color = <span class="Constant">&quot;</span><span class="Constant">red</span><span class="Constant">&quot;</span>
     g.get_vertex(a1).size = <span class="Constant">30</span>
@@ -86,6 +86,7 @@
             g.get_visualizer(to).color = <span class="Constant">&quot;</span><span class="Constant">orange</span><span class="Constant">&quot;</span>
 
     <span class="Comment"># Pass the graph object to BRIDGES</span>
+    bridges.element_label_flag = <span class="Identifier">True</span>
     bridges.set_data_structure(g)
     <span class="Comment"># visualize the graph</span>
     bridges.visualize()

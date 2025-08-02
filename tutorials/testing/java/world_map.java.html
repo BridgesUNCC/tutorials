@@ -1,6 +1,12 @@
 <pre id='vimCodeElement'>
 <span class="PreProc">import</span> bridges.connect.Bridges;
+<span class="PreProc">import</span> bridges.connect.DataSource;
 <span class="PreProc">import</span> bridges.base.WorldMap;
+<span class="PreProc">import</span> bridges.data_src_dependent.Country;
+
+
+<span class="PreProc">import</span> java.util.ArrayList;
+<span class="PreProc">import</span> java.lang.String;
 
 
 <span class="Type">public</span> <span class="Type">class</span> world_map {
@@ -11,8 +17,14 @@
 		<span class="Comment">// set title, description</span>
 		bridges.setTitle(<span class="Constant">&quot;Using World Map&quot;</span>);
 
+		DataSource ds = bridges.getDataSource();
+
+		<span class="Comment">// get Country data</span>
+		String[] countries = {<span class="Constant">&quot;Germany&quot;</span>, <span class="Constant">&quot;France&quot;</span>};
+		ArrayList&lt;Country&gt; country_data = ds.getWorldMapData();
+
 		<span class="Comment">// create a USMap object with the map data</span>
-		WorldMap wm = <span class="Statement">new</span> WorldMap();
+		WorldMap wm = <span class="Statement">new</span> WorldMap(country_data);
 
 		<span class="Comment">// set data structure</span>
 		bridges.setDataStructure(wm);

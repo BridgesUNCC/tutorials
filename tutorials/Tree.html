@@ -63,14 +63,13 @@
 	<h2> Example Details</h2>
 	<ul>
 	  <li> This example illustrates construction of a tree structure with a variable
-	    number of children (currently set to a maximum of 10).
+	    number of children.
 	  <li> Children are added using the addChild() method, with ordering of children
 	    from left to right and accessed by an integer index (begining at 0).
-	  <li> In the example, a small tree is built, visual attributes assigned
-	    and visualized.
+	  <li> In the example, a small tree is built.
 	</ul>
 
-	<h2>Here is the final code:</h2>
+	<h3>Here is a basic example code</h3>
 
 	<div class="tabs snippet1">
 	  <div onclick="displayCodeSnippet('Java', 'snippet1', this)">Java</div>
@@ -79,13 +78,13 @@
 	</div>
 	<div class="tabContents snippet1">
 	  <div id="Java">
-	    <pre w3-include-html="./testing/java/tree.java.html" class="prettyprint" />
+	    <pre w3-include-html="./testing/java/tut_tree_p1.java.html" class="prettyprint" />
 	  </div>
 	  <div id="C++">
-	    <pre w3-include-html="./testing/c++/tree.cpp.html" class="prettyprint" />
+	    <pre w3-include-html="./testing/c++/tut_tree_p1.cpp.html" class="prettyprint" />
 	  </div>
 	  <div id="Python">
-	    <pre w3-include-html="./testing/python/tree.py.html" class="prettyprint" />
+	    <pre w3-include-html="./testing/python/tut_tree_p1.py.html" class="prettyprint" />
 	  </div>
 	</div>
 
@@ -97,12 +96,57 @@
 	  <li>It should look something like this:</li>
 	</ul>
 	<div class="iframe-wrapper">
-	  <iframe src="https://bridges-cs.herokuapp.com/assignments/9200/bridges_public" scrolling="no">
+	  <iframe src="https://assignments.bridgesuncc.org/assignments/9201/bridges_public" scrolling="no">
 	    <p>Sorry, your browser doesn't seem to support iframes -
-              <a href="https://bridges-cs.herokuapp.com/assignments/9200/bridges_public">Frame Link</a>
+              <a href="https://assignments.bridgesuncc.org/assignments/9201/bridges_public">Frame Link</a>
 	    </p>
 	  </iframe>
 	</div>
+
+
+	<h2>Styling trees in BRIDGES</h2>
+
+	<p>You can style the nodes of the trees, and and links of
+	trees in BRIDGES. This uses the ElementVisualizer and the
+	LinkVisualizer classes. These classes enable you to set the color, size, and labels on the nodes and links of the tree.</p>
+	  
+	<p>Here is the same example with some visual attributes set.
+	</p>
+	<h3>Here is the final code:</h3>
+
+	<div class="tabs snippet2">
+	  <div onclick="displayCodeSnippet('Java', 'snippet2', this)">Java</div>
+	  <div onclick="displayCodeSnippet('C++', 'snippet2', this)" >C++</div>
+	  <div onclick="displayCodeSnippet('Python', 'snippet2', this)" >Python</div>
+	</div>
+	<div class="tabContents snippet2">
+	  <div id="Java">
+	    <pre w3-include-html="./testing/java/tut_tree_p2.java.html" class="prettyprint" />
+	  </div>
+	  <div id="C++">
+	    <pre w3-include-html="./testing/c++/tut_tree_p2.cpp.html" class="prettyprint" />
+	  </div>
+	  <div id="Python">
+	    <pre w3-include-html="./testing/python/tut_tree_p2.py.html" class="prettyprint" />
+	  </div>
+	</div>
+
+	<h3>Bridges Visualization</h3>
+	<ul>
+	  <li>Once all your code is in order, run your program.</li>
+	  <li>Assuming all your code is correct and it compiles correctly, a link to the Bridges website will be generated.</li>
+	  <li>Copy/paste this link into your favorite browser to view a visualization of the data structure you’ve just created.</li>
+	  <li>It should look something like this:</li>
+	</ul>
+	<div class="iframe-wrapper">
+	  <iframe src="https://assignments.bridgesuncc.org/assignments/9202/bridges_public" scrolling="no">
+	    <p>Sorry, your browser doesn't seem to support iframes -
+              <a href="https://assignments.bridgesuncc.org/assignments/9202/bridges_public">Frame Link</a>
+	    </p>
+	  </iframe>
+	</div>
+
+	
 	<p>Well done! You’ve just created your Bridges Tree project!</p>
       </main>
 

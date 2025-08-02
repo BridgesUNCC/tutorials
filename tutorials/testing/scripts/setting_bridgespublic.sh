@@ -52,9 +52,12 @@ FORCE_BRIDGES_ASSIGNMENT=9130 ./circ_dllist 9999 fakename fakeapi
 FORCE_BRIDGES_ASSIGNMENT=9140 ./mllist 9999 fakename fakeapi
 
 
-FORCE_BRIDGES_ASSIGNMENT=9200 ./tree 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=9201 ./tut_tree_p1 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=9202 ./tut_tree_p1 9999 fakename fakeapi
 
 FORCE_BRIDGES_ASSIGNMENT=9210 ./bintree 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=9211 ./tut_bintree_p1 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=9212 ./tut_bintree_p2 9999 fakename fakeapi
 
 FORCE_BRIDGES_ASSIGNMENT=9220 ./bst_eq 9999 fakename fakeapi
 
@@ -103,19 +106,24 @@ FORCE_BRIDGES_ASSIGNMENT=10170 ./tut_graph_p3 9999 fakename fakeapi
 
 ## tutorials added : 7/19/22
 
-FORCE_BRIDGES_ASSIGNMENT=10180 ./tut_linechart 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=10180 ./linechart 9999 fakename fakeapi
 
 ## tutorials added : 7/19/24
 
 FORCE_BRIDGES_ASSIGNMENT=10190 ./barchart 9999 fakename fakeapi
 
 
-# Maps (added by Erik 12/27/2024)
+# US Maps (added by Erik 12/27/2024)
 FORCE_BRIDGES_ASSIGNMENT=20150 ./tut_us_map_p1 9999 fakename fakeapi
 FORCE_BRIDGES_ASSIGNMENT=20160 ./tut_us_map_p2 9999 fakename fakeapi
 FORCE_BRIDGES_ASSIGNMENT=20170 ./tut_us_map_p3 9999 fakename fakeapi
 FORCE_BRIDGES_ASSIGNMENT=20180 ./tut_us_map_overlay 9999 fakename fakeapi
 
+# Worl Maps (added by KRS 7/29/2025)
+FORCE_BRIDGES_ASSIGNMENT=20250 ./tut_worldmap_p1 9999  fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=20260 ./tut_worldmap_p2 9999  fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=20270 ./tut_worldmap_p3 9999  fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=20280 ./tut_worldmap_p4 9999 fakename fakeapi
 
 ## games don't produce useful visualization
 

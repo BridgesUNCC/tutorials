@@ -1,0 +1,63 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">from</span> bridges.bridges <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.data_src_dependent <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.dl_element <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.world_map <span class="PreProc">import</span> *
+<span class="PreProc">from</span> bridges.graph_adj_list <span class="PreProc">import</span> *
+
+<span class="Statement">def</span> <span class="Identifier">main</span>():
+    <span class="Comment"># create the Bridges object, set credentials</span>
+    bridges = Bridges(YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;</span><span class="Constant">YOUR_USER_ID</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">YOUR_API_KEY</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment"># set title, description</span>
+    bridges.set_title(<span class="Constant">&quot;</span><span class="Constant">World Map Using BRIDGES</span><span class="Constant">&quot;</span>)
+    bridges.set_description(<span class="Constant">&quot;</span><span class="Constant">Draws all countries and their boundaries in a default color</span><span class="Constant">&quot;</span>)
+
+    <span class="Comment"># with no arguments to the function, gets all countries of the world</span>
+    country_data = get_world_map_data()
+    wm = WorldMap()
+
+	<span class="Comment"># lets add  a points to the map to illustrate how to identify cities </span>
+    <span class="Comment"># we will use graph vertices for this</span>
+
+    gr = GraphAdjList()
+    gr.add_vertex(<span class="Constant">&quot;</span><span class="Constant">Charlotte</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">Charlotte,NC</span><span class="Constant">&quot;</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Charlotte</span><span class="Constant">&quot;</span>).set_location(-<span class="Constant">80.8431</span>, <span class="Constant">35.2271</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Charlotte</span><span class="Constant">&quot;</span>).color = <span class="Constant">&quot;</span><span class="Constant">crimson</span><span class="Constant">&quot;</span>
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Charlotte</span><span class="Constant">&quot;</span>).size = <span class="Constant">2.</span>
+
+    gr.add_vertex(<span class="Constant">&quot;</span><span class="Constant">Paris</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">Paris, France</span><span class="Constant">&quot;</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Paris</span><span class="Constant">&quot;</span>).set_location(<span class="Constant">2.3514</span>, <span class="Constant">48.8576</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Paris</span><span class="Constant">&quot;</span>).color = <span class="Constant">&quot;</span><span class="Constant">crimson</span><span class="Constant">&quot;</span>
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Paris</span><span class="Constant">&quot;</span>).size = <span class="Constant">2.</span>
+
+    gr.add_vertex(<span class="Constant">&quot;</span><span class="Constant">Berlin</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">Berlin, Germany</span><span class="Constant">&quot;</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Berlin</span><span class="Constant">&quot;</span>).set_location(<span class="Constant">13.4</span>, <span class="Constant">52.52</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Berlin</span><span class="Constant">&quot;</span>).color = <span class="Constant">&quot;</span><span class="Constant">crimson</span><span class="Constant">&quot;</span>
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Berlin</span><span class="Constant">&quot;</span>).size = <span class="Constant">2.</span>
+
+    gr.add_vertex(<span class="Constant">&quot;</span><span class="Constant">New Delhi</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">New Delhi, India</span><span class="Constant">&quot;</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">New Delhi</span><span class="Constant">&quot;</span>).set_location(<span class="Constant">77.208</span>, <span class="Constant">28.614</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">New Delhi</span><span class="Constant">&quot;</span>).color = <span class="Constant">&quot;</span><span class="Constant">crimson</span><span class="Constant">&quot;</span>
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">New Delhi</span><span class="Constant">&quot;</span>).size = <span class="Constant">2.</span>
+
+    gr.add_vertex(<span class="Constant">&quot;</span><span class="Constant">Buenos Aires</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">Buenos Aires, Argenina</span><span class="Constant">&quot;</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Buenos Aires</span><span class="Constant">&quot;</span>).set_location(-<span class="Constant">58.382</span>, -<span class="Constant">34.60</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Buenos Aires</span><span class="Constant">&quot;</span>).color = <span class="Constant">&quot;</span><span class="Constant">crimson</span><span class="Constant">&quot;</span>
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Buenos Aires</span><span class="Constant">&quot;</span>).size = <span class="Constant">2.</span>
+
+    gr.add_vertex(<span class="Constant">&quot;</span><span class="Constant">Esperanza Station, Antarctica</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">Esperanza Station, Antarctica</span><span class="Constant">&quot;</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Esperanza Station, Antarctica</span><span class="Constant">&quot;</span>).set_location(-<span class="Constant">56.59</span>, -<span class="Constant">63.24</span>)
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Esperanza Station, Antarctica</span><span class="Constant">&quot;</span>).color = <span class="Constant">&quot;</span><span class="Constant">crimson</span><span class="Constant">&quot;</span>
+    gr.get_vertex(<span class="Constant">&quot;</span><span class="Constant">Esperanza Station, Antarctica</span><span class="Constant">&quot;</span>).size = <span class="Constant">2.</span>
+
+	<span class="Comment"># add the map overlay</span>
+    bridges.set_map(wm)
+
+    <span class="Comment">#visualizes world map</span>
+    bridges.set_data_structure(gr)
+    bridges.visualize()
+
+<span class="Statement">if</span> __name__ == <span class="Constant">'</span><span class="Constant">__main__</span><span class="Constant">'</span>:
+    main()
+</pre>

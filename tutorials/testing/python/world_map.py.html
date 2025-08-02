@@ -9,16 +9,16 @@
     bridges = Bridges(YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;</span><span class="Constant">YOUR_USER_ID</span><span class="Constant">&quot;</span>, <span class="Constant">&quot;</span><span class="Constant">YOUR_API_KEY</span><span class="Constant">&quot;</span>)
 
     <span class="Comment"># set title, description</span>
-    bridges.set_title(<span class="Constant">&quot;</span><span class="Constant">World Map Overlay</span><span class="Constant">&quot;</span>)
+    bridges.set_title(<span class="Constant">&quot;</span><span class="Constant">World Map Using BRIDGES</span><span class="Constant">&quot;</span>)
 
-    my_map = WorldMap()
+    <span class="Comment">#country_data = get_world_map_data(['Australia', 'Germany', 'France'])</span>
+    country_data = get_world_map_data()
+    wm = WorldMap(country_data)
 
     <span class="Comment">#visualizes world map</span>
-    bridges.set_data_structure(my_map)
+    bridges.set_data_structure(wm)
+    bridges.set_json_flag(<span class="Identifier">True</span>)
     bridges.visualize()
-
-
-
 
 <span class="Statement">if</span> __name__ == <span class="Constant">'</span><span class="Constant">__main__</span><span class="Constant">'</span>:
     main()
