@@ -1,0 +1,66 @@
+<pre id='vimCodeElement'>
+<span class="PreProc">import</span> java.util.ArrayList;
+<span class="PreProc">import</span> java.util.Map;
+<span class="PreProc">import</span> bridges.connect.Bridges;
+<span class="PreProc">import</span> bridges.connect.DataSource;
+<span class="PreProc">import</span> bridges.data_src_dependent.USState;
+<span class="PreProc">import</span> bridges.data_src_dependent.USCounty;
+<span class="PreProc">import</span> bridges.base.SLelement;
+<span class="PreProc">import</span> bridges.base.USMap;
+<span class="PreProc">import</span> bridges.base.Color;
+
+
+<span class="Comment">// This program illustrates how to access the data of the US map with state</span>
+<span class="Comment">// boundaries with different colors for states and its boundaries</span>
+<span class="Comment">// Here we select 3 states and draw them with different attributes with or </span>
+<span class="Comment">// without counties</span>
+
+<span class="Type">public</span> <span class="Type">class</span> tut_us_map_p3 {
+	<span class="Type">public</span> <span class="Type">static</span> <span class="Type">void</span> main(String[] args) <span class="Type">throws</span> Exception {
+
+		<span class="Comment">// create Bridges object</span>
+		Bridges bridges = <span class="Statement">new</span> Bridges (YOUR_ASSSIGNMENT_NUMBER, <span class="Constant">&quot;YOUR_USER_ID&quot;</span>, <span class="Constant">&quot;YOUR_API_KEY&quot;</span>);
+		<span class="Comment">// set title, description</span>
+		bridges.setTitle(<span class="Constant">&quot;Tutorial: Drawing US Map with States and Counties&quot;</span>);
+		bridges.setDescription(<span class="Constant">&quot;3 US  states, with or without Counties, with varied coloring&quot;</span>);
+
+		<span class="Comment">// get data source object</span>
+		DataSource ds = bridges.getDataSource();
+
+		<span class="Comment">// get the States</span>
+		String[] states = {<span class="Constant">&quot;Vermont&quot;</span>, <span class="Constant">&quot;Iowa&quot;</span>, <span class="Constant">&quot;North Carolina&quot;</span>};
+
+		<span class="Comment">// get us map data - states and boundaries with counties</span>
+		<span class="Comment">// second argument is needed to get the counties</span>
+		ArrayList&lt;USState&gt; map_data = ds.getUSMapCountyData (states, <span class="Constant">true</span>);
+
+		<span class="Comment">// we will draw the first state without counties and set </span>
+		<span class="Comment">// fill and boundary colors - use the viewCounties() flag to </span>
+		<span class="Comment">// ignore counties</span>
+		USState s = map_data.get(<span class="Constant">0</span>);
+		s.setStrokeColor(<span class="Statement">new</span> Color(<span class="Constant">255</span>,<span class="Constant">0</span>,<span class="Constant">0</span>));
+		s.setFillColor(<span class="Statement">new</span> Color(<span class="Constant">0</span>,<span class="Constant">255</span>,<span class="Constant">0</span>));
+		s.setViewCountiesFlag(<span class="Constant">false</span>);
+
+		<span class="Comment">// the second state  we will draw with counties and set their colors</span>
+		USState s2 = map_data.get(<span class="Constant">1</span>);
+
+		<span class="Comment">// iterate over the counties</span>
+		<span class="Statement">for</span> (Map.Entry&lt;String,USCounty&gt; e: s2.getCounties().entrySet()) {
+			USCounty c = e.getValue();
+			c.setStrokeColor(<span class="Statement">new</span> Color(<span class="Constant">50</span>,<span class="Constant">250</span>,<span class="Constant">50</span>));
+			c.setFillColor(<span class="Statement">new</span> Color(<span class="Constant">0</span>,<span class="Constant">0</span>,<span class="Constant">25</span>));
+		}
+
+		<span class="Comment">// create a USMap object with the map data</span>
+		USMap us_maps = <span class="Statement">new</span> USMap(map_data);
+
+
+		<span class="Comment">// set data structure</span>
+		bridges.setDataStructure(us_maps);
+
+		<span class="Comment">// visualize</span>
+		bridges.visualize();
+	}
+}
+</pre>

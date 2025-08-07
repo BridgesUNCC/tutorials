@@ -16,8 +16,8 @@ public class tut_worldmap_p2 {
 		Bridges bridges = new Bridges (YOUR_ASSSIGNMENT_NUMBER, "YOUR_USER_ID", 
 												"YOUR_API_KEY");
 		// set title, description
-		bridges.setTitle("Tutorial: Drawing US Map with State Boundaries");
-		bridges.setDescription("All US states, No Counties");
+		bridges.setTitle("Tutorial: Drawing World Map with Country Boundaries");
+		bridges.setDescription("World Map; only a few Countries");
 
 		// get data source object
 		DataSource ds = bridges.getDataSource();

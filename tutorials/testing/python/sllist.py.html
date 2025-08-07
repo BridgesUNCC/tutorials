@@ -34,8 +34,13 @@
     el0.get_link_visualizer(el1).color = <span class="Constant">&quot;</span><span class="Constant">green</span><span class="Constant">&quot;</span>
     el3.get_link_visualizer(el4).color = <span class="Constant">&quot;</span><span class="Constant">magenta</span><span class="Constant">&quot;</span>
 
+    <span class="Comment"># set link label</span>
+    el2.get_link_visualizer(el3).set_label(<span class="Constant">&quot;</span><span class="Constant">Gladys-&gt;Karol</span><span class="Constant">&quot;</span>)
+
+	<span class="Comment"># turn on element and link labels</span>
     bridges.element_label_flag = <span class="Identifier">True</span>
     bridges.link_label_flag = <span class="Identifier">True</span>
+
     <span class="Comment"># visualize</span>
     bridges.set_data_structure(el0)
     bridges.visualize()

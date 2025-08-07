@@ -1,0 +1,25 @@
+from bridges.bridges import *
+from bridges.data_src_dependent import *
+from bridges.dl_element import *
+from bridges.us_map import *
+
+def main():
+    # create the Bridges object, set credentials
+    bridges = Bridges(YOUR_ASSSIGNMENT_NUMBER, "YOUR_USER_ID", "YOUR_API_KEY")
+
+    # set title, description
+    bridges.set_title("Tutorial: Drawing US Map with State Boundaries")
+    bridges.set_description("All US states, No Counties")
+
+    #pass no parameters for the whole map
+    state_info = get_us_map_data()
+    my_map = USMap(state_info)
+
+
+    #visualizes map
+    bridges.set_data_structure(my_map)
+    bridges.visualize()
+
+
+if __name__ == '__main__':
+    main()

@@ -35,19 +35,33 @@
 
 	<span class="Comment">// form the links</span>
 	t0-&gt;setLeft(t1);
+	t0-&gt;getLinkVisualizer(t1)-&gt;setLabel(<span class="Constant">&quot;0&quot;</span>);
 	t0-&gt;setRight(t2);
+	t0-&gt;getLinkVisualizer(t2)-&gt;setLabel(<span class="Constant">&quot;1&quot;</span>);
 	t2-&gt;setLeft(t3);
+	t2-&gt;getLinkVisualizer(t3)-&gt;setLabel(<span class="Constant">&quot;0&quot;</span>);
 	t2-&gt;setRight(t7);
+	t2-&gt;getLinkVisualizer(t7)-&gt;setLabel(<span class="Constant">&quot;1&quot;</span>);
 	t3-&gt;setLeft(t4);
+	t3-&gt;getLinkVisualizer(t4)-&gt;setLabel(<span class="Constant">&quot;0&quot;</span>);
 	t3-&gt;setRight(t5);
+	t3-&gt;getLinkVisualizer(t5)-&gt;setLabel(<span class="Constant">&quot;1&quot;</span>);
 	t7-&gt;setLeft(t6);
+	t7-&gt;getLinkVisualizer(t6)-&gt;setLabel(<span class="Constant">&quot;0&quot;</span>);
 	t7-&gt;setRight(t8);
+	t7-&gt;getLinkVisualizer(t8)-&gt;setLabel(<span class="Constant">&quot;1&quot;</span>);
 	t8-&gt;setLeft(t9);
+	t8-&gt;getLinkVisualizer(t9)-&gt;setLabel(<span class="Constant">&quot;0&quot;</span>);
 	t8-&gt;setRight(t10);
+	t8-&gt;getLinkVisualizer(t10)-&gt;setLabel(<span class="Constant">&quot;1&quot;</span>);
 	t10-&gt;setLeft(t11);
+	t10-&gt;getLinkVisualizer(t11)-&gt;setLabel(<span class="Constant">&quot;0&quot;</span>);
 	t10-&gt;setRight(t14);
+	t10-&gt;getLinkVisualizer(t14)-&gt;setLabel(<span class="Constant">&quot;1&quot;</span>);
 	t11-&gt;setLeft(t12);
+	t11-&gt;getLinkVisualizer(t12)-&gt;setLabel(<span class="Constant">&quot;0&quot;</span>);
 	t11-&gt;setRight(t13);
+	t11-&gt;getLinkVisualizer(t13)-&gt;setLabel(<span class="Constant">&quot;1&quot;</span>);
 
 	<span class="Comment">// color the leaf nodes that represent the code letters</span>
 	t0-&gt;setColor(<span class="Constant">&quot;red&quot;</span>);
@@ -62,6 +76,10 @@
 
 	<span class="Comment">// provide BRIDGES the  handle to the tree structure</span>
 	bridges.setDataStructure(t0);
+
+	<span class="Comment">// turn labels on</span>
+	bridges.setElementLabelFlag(<span class="Constant">true</span>);
+	bridges.setLinkLabelFlag(<span class="Constant">true</span>);
 
 	<span class="Comment">// visualize</span>
 	bridges.visualize();

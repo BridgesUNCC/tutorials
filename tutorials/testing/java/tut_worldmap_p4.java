@@ -93,7 +93,7 @@ public class tut_worldmap_p4 {
 
 		WorldMap wm = new WorldMap(wm_data);
 		bridges.setMap(wm);
-		bridges.setLabelFlag(true);
+		bridges.setElementLabelFlag(true);
 
 		// set data structure
 		bridges.setDataStructure(sc);
