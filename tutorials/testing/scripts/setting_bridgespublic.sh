@@ -114,9 +114,9 @@ FORCE_BRIDGES_ASSIGNMENT=10190 ./barchart 9999 fakename fakeapi
 
 
 # US Maps (added by Erik 12/27/2024)
-FORCE_BRIDGES_ASSIGNMENT=20150 ./tut_us_map_p1 9999 fakename fakeapi
-FORCE_BRIDGES_ASSIGNMENT=20160 ./tut_us_map_p2 9999 fakename fakeapi
-FORCE_BRIDGES_ASSIGNMENT=20170 ./tut_us_map_p3 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=20150 ./tut_usmap_p1 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=20160 ./tut_usmap_p2 9999 fakename fakeapi
+FORCE_BRIDGES_ASSIGNMENT=20170 ./tut_usmap_p3 9999 fakename fakeapi
 FORCE_BRIDGES_ASSIGNMENT=20180 ./tut_us_map_overlay 9999 fakename fakeapi
 
 # Worl Maps (added by KRS 7/29/2025)
